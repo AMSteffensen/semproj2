@@ -1,0 +1,297 @@
+01_03:
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript Animations</title>
+</head>
+<body>
+    <h1>Hi :-)</h1>
+</body>
+</html>
+
+
+01_04:
+<link rel="stylesheet" href="app.css">
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+body {
+   background-color: rgb(30, 30, 30);
+   color: rgb(200, 200, 200);
+   font-family: 'Lato', sans-serif;
+   margin:0;
+   padding:0;
+}
+
+
+01_05:
+<script src="app.js"></script>
+
+document.getElementById("msg").innerText = "Hey, Joseph!";
+
+<h1 id="msg">Hey :-)</h1>
+
+h1 {
+    margin:20px;
+}
+
+
+02_01:
+<div id="circle"></div>
+#circle {
+    width: 50px;
+    height: 50px;
+    left: 20px;
+    border-radius: 50px;
+    background-color: crimson;
+    position: relative;
+}
+
+
+02_02:
+var ol = 0;
+var circleInterval = setInterval(circleAnimation, 50);
+function circleAnimation() {
+    ol++;
+    document.getElementById("circle").style.left = ol + "px";
+}
+
+#circle {
+    width: 50px;
+    height: 50px;
+    left: 0px;
+    border-radius: 50px;
+    background-color: crimson;
+    position: relative;
+}
+
+
+02_03:
+function circleAnimation() {
+    if(ol >= (4000/50)){
+        document.getElementById("circle").style.backgroundColor = "dimgrey";
+        clearInterval(circleInterval);
+    }else{
+        ol++;
+        document.getElementById("circle").style.left = ol + "px";
+    }
+}
+
+
+02_04:
+var circleInterval;
+function circleAnimation(time) {
+    ol++;
+    document.getElementById("circle").style.left = ol + "px";
+    if (time < 4000) {
+        circleInterval = requestAnimationFrame(circleAnimation);
+    }else{
+        document.getElementById("circle").style.backgroundColor = "dimgrey";
+cancelAnimationFrame(circleInterval);
+    }
+}
+circleInterval = requestAnimationFrame(circleAnimation);
+
+
+02_05:
+var ol = 0;
+var isPlaying = false;
+var circleInterval;
+
+function circleAnimation(time) {
+    ol++;
+    document.getElementById("circle").style.left = ol + "px";
+    circleInterval = requestAnimationFrame(circleAnimation);
+}
+
+function mouseClicked() {
+    if(isPlaying){
+        isPlaying = false;
+        document.getElementById("circle").style.backgroundColor = "dimgrey";
+        cancelAnimationFrame(circleInterval);
+    }else{
+        isPlaying = true;
+        document.getElementById("circle").style.backgroundColor = "crimson";
+        circleInterval = requestAnimationFrame(circleAnimation);
+    }
+}
+
+document.getElementById("circle").addEventListener("click", mouseClicked);
+document.getElementById("circle").style.backgroundColor = "dimgrey";
+
+
+02_07:
+var el = document.getElementById("circle");
+var sc = 1;
+
+function circleAnimation(time) {
+    ol++;
+    sc++;
+    el.style.left = ol + "px";
+    el.style.width = sc + "px";
+    el.style.height = sc + "px";
+    el.style.borderRadius = sc*100 + "px";
+    circleInterval = requestAnimationFrame(circleAnimation);
+}
+
+
+03_01:
+<canvas id="animated-canvas" width="600" height="400"></canvas>
+
+canvas {
+    margin:20px;
+    border: 4px solid crimson;
+}
+
+var canvas = document.getElementById('animated-canvas');
+
+
+03_02:
+var context = canvas.getContext('2d');
+function drawCircle(){
+    context.fillStyle = "crimson";
+    context.beginPath();
+    context.arc(60, canvas.height/2, 25, 0, 2 * Math.PI);
+    context.fill();
+}
+drawCircle();
+
+
+03_03:
+var canvasInterval = requestAnimationFrame(canvasAnimation);
+var circleX = 60;
+
+function canvasAnimation(){
+    circleX++;
+    drawCircle(circleX, canvas.height/2, 25);
+    canvasInterval = requestAnimationFrame(canvasAnimation);
+}
+
+function drawCircle(x, y, s){
+    clearCanvas();
+    context.fillStyle = "crimson";
+    context.beginPath();
+    context.arc(x, y, s, 0, 2 * Math.PI);
+    context.fill();
+}
+
+function clearCanvas() {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+
+03_04:
+var velocity = 1;
+var acceleration = 0.5;
+
+function drawCircle(x, y, s){
+    clearCanvas();
+    context.fillStyle = "crimson";
+    context.beginPath();
+    context.arc(x, y, s, 0, 2 * Math.PI);
+    context.fill();
+    velocity += acceleration;
+    circleX += velocity;
+    if(circleX > canvas.width){
+        circleX = 0;
+        velocity = 1;
+    }
+}
+
+
+03_06:
+var posY = canvas.height/2;
+
+function makeRandom(n) {
+  return Math.floor(Math.random() * Math.floor(n));
+}
+
+if(circleX > canvas.width){
+    //circleX = 0;
+    //velocity = 1;
+    circleX = makeRandom(canvas.width);
+    velocity = makeRandom(3);
+    posY = makeRandom(canvas.height);
+}
+
+//clearCanvas();
+context.globalCompositeOperation = "difference";
+
+
+04_01: 
+<div id="web-animation"></div>
+
+#web-animation {
+    background-color: #black;
+    border:crimson solid 4px;
+    width:200px;
+    height:200px;
+    margin:5rem;
+}
+
+var rotatingSquare = document.getElementById("web-animation");
+
+
+04_02: 
+rotatingSquare.animate(
+    [
+      { backgroundColor: '#000000' },
+      { backgroundColor: '#440000' },
+      { backgroundColor: '#000000' }
+    ], {
+      duration: 500,
+      iterations: 7 
+    }
+);
+
+04_03:
+rotatingSquare.animate(
+    [
+        { backgroundColor: '#000000', opacity: 1.0, transform: 'rotate(0deg) translate3D(0, 0, 0)' },
+        { backgroundColor: '#440000', opacity: 0.3 },
+        { backgroundColor: '#000000', opacity: 1.0, transform: 'rotate(360deg) translate3D(0, 0, 0)' }
+    ],
+    {
+        duration: 500,
+        iterations: Infinity
+    }
+)
+
+
+04_04:
+rotatingSquare.animate(
+    [
+        { backgroundColor: '#000000', opacity: 1.0, transform: 'rotate(0deg) translate3D(0, 0, 0)' },
+        { backgroundColor: '#440000', opacity: 0.3 },
+        { backgroundColor: '#000000', opacity: 1.0, transform: 'rotate(360deg) translate3D(0, 0, 0)' }
+    ],
+    {
+        duration: 500,
+        iterations: Infinity,
+        easing: 'ease-in-out'
+    }
+)
+
+
+04_05: 
+var rotatingSquare = document.getElementById("web-animation").animate(
+
+<button onclick="rotatingSquare.play()" type="button">Play</button>
+<button onclick="rotatingSquare.pause()" type="button">Pause</button>
+<button onclick="rotatingSquare.playbackRate+=0.2" type="button">Speed Up</button>
+<button onclick="rotatingSquare.playbackRate-=0.2" type="button">Slow Down</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
