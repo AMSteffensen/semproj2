@@ -1,0 +1,44 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Game of Thrones game</title>
+
+<style type="text/css">
+	#stage {
+		width: 384px;
+		height: 384px;
+		position: relative;
+		background-image: url("../images/background.png");
+	}
+
+	#tile {
+		display: block;
+		position: absolute;
+		width: 64px;
+		height: 64px;
+	}
+
+	p {
+		width: 400px;
+	}
+</style>
+
+<div id="stage"></div>
+<p id="output"></p>
+
+
+
+<script type="text/javascript">
+	//get a reference
+	var stage = document.querySelector("#stage");
+	var output = document.querySelector("#output");
+
+	//the game map 
+	var map = [
+		[0, 2, 0, 0, 0, 3],
+		[0, 0, 0, 1, 0, 0],
+		[0, 1, 0, 0, 0, 0],
+		[0, 0, 0, 0, 2, 0],
+		[0, 2, 0, 1, 0, 0],
+		[0, 0, 0, 0, 0, 0]
+	];
+</script>
