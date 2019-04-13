@@ -41,4 +41,57 @@
 		[0, 2, 0, 1, 0, 0],
 		[0, 0, 0, 0, 0, 0]
 	];
+
+	//map code
+	var DESERT = 0;
+	var TOWER = 1;
+	var DRAGON = 2;
+	var THRONE = 3;
+
+	//Size of each of the tiles
+	var SIZE = 64;
+
+	//Number of rows and columns
+	var ROWS = map.length;
+	var COLUMNS = map[0].length;
+
+	render();
+
+	function render() {
+		if (stage.hasChildNodes()) {
+			for (var i = 0; i < ROWS * COLUMNS; i++) {
+				stage.removeChild(stage.firstChild);
+			}
+		}
+
+		//render the game by looping through the array
+		for (var row = 0; row < ROWS; row++) {
+			for (var column = 0; column < COLUMNS; column++) {
+				//create tiles
+				var tile = document.createElement("img");
+
+				//set its css class to tiles
+				tile.setAttribute("class", "tile");
+
+				//add tagg to image
+				stage.appendChild(tile);
+
+				//find the correct image
+				switch (map[row][column]) {
+					case DESERT:
+						tile.src = "../images/tile.png";
+						break;
+					case TOWER:
+						tile.src = "../images/tower.png";
+						break;
+					case THRONE:
+						tile.src = "../images/throne.png";
+						break;
+				}
+				//position the tile
+				tile.style.top = row * SIZE + "px";
+				tile.style.left = column * SIZE + "px";
+			}
+		}
+	}
 </script>
