@@ -1,97 +1,153 @@
-<!doctype html>
-<meta charset="utf-8">
+<!DOCTYPE html>
+<meta charset="utf-8" />
 <title>Game of Thrones game</title>
 
 <style type="text/css">
-	#stage {
-		width: 384px;
-		height: 384px;
-		position: relative;
-		background-image: url("../images/background.png");
-	}
+  #stage {
+    width: 384px;
+    height: 384px;
+    position: relative;
+    background-image: url("../images/background.png");
+  }
 
-	#tile {
-		display: block;
-		position: absolute;
-		width: 64px;
-		height: 64px;
-	}
+  #tile {
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+  }
 
-	p {
-		width: 400px;
-	}
+  p {
+    width: 400px;
+  }
+
+  .tile {
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+  }
 </style>
 
 <div id="stage"></div>
 <p id="output"></p>
 
+<canvas id="cnvs"></canvas>
 
-
+<script src="main.js"></script>
 <script type="text/javascript">
-	//get a reference
-	var stage = document.querySelector("#stage");
-	var output = document.querySelector("#output");
+  //get a reference
+  var stage = document.querySelector("#stage");
+  var output = document.querySelector("#output");
 
-	//the game map 
-	var map = [
-		[0, 2, 0, 0, 0, 3],
-		[0, 0, 0, 1, 0, 0],
-		[0, 1, 0, 0, 0, 0],
-		[0, 0, 0, 0, 2, 0],
-		[0, 2, 0, 1, 0, 0],
-		[0, 0, 0, 0, 0, 0]
-	];
+  //Add a keyboard listener
+  window.addEventListener("keydown", keydownHandler, false);
 
-	//map code
-	var DESERT = 0;
-	var TOWER = 1;
-	var DRAGON = 2;
-	var THRONE = 3;
+  //the game map
+  var map = [
+    [0, 2, 0, 0, 0, 3],
+    [0, 0, 0, 1, 0, 0],
+    [0, 1, 0, 0, 0, 0],
+    [0, 0, 0, 0, 2, 0],
+    [0, 2, 0, 1, 0, 0],
+    [0, 0, 0, 0, 0, 0]
+  ];
 
-	//Size of each of the tiles
-	var SIZE = 64;
+  var gameObjects = [
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [4, 0, 0, 0, 0, 0]
+  ];
 
-	//Number of rows and columns
-	var ROWS = map.length;
-	var COLUMNS = map[0].length;
+  //map code
+  var DESERT = 0;
+  var TOWER = 1;
+  var DRAGON = 2;
+  var THRONE = 3;
+  var PLAYER = 4;
 
-	render();
+  //Size of each of the tiles
+  var SIZE = 64;
 
-	function render() {
-		if (stage.hasChildNodes()) {
-			for (var i = 0; i < ROWS * COLUMNS; i++) {
-				stage.removeChild(stage.firstChild);
-			}
-		}
+  //Number of rows and columns
+  var ROWS = map.length;
+  var COLUMNS = map[0].length;
 
-		//render the game by looping through the array
-		for (var row = 0; row < ROWS; row++) {
-			for (var column = 0; column < COLUMNS; column++) {
-				//create tiles
-				var tile = document.createElement("img");
+  //keycodes
+  var SPACE = 32;
 
-				//set its css class to tiles
-				tile.setAttribute("class", "tile");
+  //an automatic way of setting the player's start position
+  var playerRow;
+  var playerColumn;
 
-				//add tagg to image
-				stage.appendChild(tile);
+  for (var row = 0; row < ROWS; row++) {
+    for (var column = 0; column < COLUMNS; column++) {
+      if (gameObjects[row][column] === PLAYER) {
+        playerRow = row;
+        playerColumn = column;
+      }
+    }
+  }
 
-				//find the correct image
-				switch (map[row][column]) {
-					case DESERT:
-						tile.src = "../images/tile.png";
-						break;
-					case TOWER:
-						tile.src = "../images/tower.png";
-						break;
-					case THRONE:
-						tile.src = "../images/throne.png";
-						break;
-				}
-				//position the tile
-				tile.style.top = row * SIZE + "px";
-				tile.style.left = column * SIZE + "px";
-			}
-		}
-	}
+  render();
+
+  function keydownHandler(event) {
+    switch (event.keyCode) {
+      case SPACE:
+        if (shipColumn < COLUMNS - 1) {
+          gameObjects[shipRow][shipColumn] = 0;
+          shipColumn++;
+          gameObjects[shipRow][shipColumn] = SHIP;
+        }
+        break;
+    }
+
+    //Render the game
+    render();
+  }
+
+  function render() {
+    if (stage.hasChildNodes()) {
+      for (var i = 0; i < ROWS * COLUMNS; i++) {
+        stage.removeChild(stage.firstChild);
+      }
+    }
+
+    //render the game by looping through the array
+    for (var row = 0; row < ROWS; row++) {
+      for (var column = 0; column < COLUMNS; column++) {
+        if (gameObjects[row][coloumn] === SHIP) {
+          shipRow = row;
+          shipColumn = column;
+        }
+        //create tiles
+        var tile = document.createElement("img");
+
+        //set its css class to tiles
+        tile.setAttribute("class", "tile");
+
+        //add tagg to image
+        stage.appendChild(tile);
+
+        //find the correct image
+        switch (map[row][column]) {
+          case DESERT:
+            tile.src = "../images/tile.png";
+            break;
+          case TOWER:
+            tile.src = "../images/tower.png";
+            break;
+          case THRONE:
+            tile.src = "../images/throne.png";
+            break;
+        }
+        //position the tile
+        tile.style.top = row * SIZE + "px";
+        tile.style.left = column * SIZE + "px";
+      }
+    }
+  }
 </script>

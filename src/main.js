@@ -1,15 +1,19 @@
-;
-(function (window) {
-	// var TILE = 0;
-	// var TOWER = 1;
-	// var DRAGON = 2;
-	// var THRONE = 3;
-
-	// //Size of each of the tiles
-	// var SIZE = 64;
-
-	// //Number of rows and columns
-	// var ROWS = map.length;
-	// var COLUMNS = map[0].length;
-
-})(window);
+var canvas;
+var ctx;
+function gameLoop() {
+    requestAnimationFrame(gameLoop);
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, 1280, 720);
+    ctx.save();
+    ctx.beginPath();
+    //ctx.strokeStyle() = this.color;
+    ctx.lineWidth = this.lineWidth;
+    ctx.arc(400, 400, this.radius, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.restore();
+}
+window.onload = function () {
+    canvas = document.getElementById("cnvs");
+    ctx = canvas.getContext("2d");
+    gameLoop();
+};
