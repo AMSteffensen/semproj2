@@ -1,13 +1,19 @@
-//Import core
-@import "variables";
-@import "mixins";
-@import "base";
-@import "layout";
-@import "mixins";
+    //variables
+    @import 'bower_components/bourbon/core/bourbon';
+    @import 'bower_components/normalize-css/normalize';
+    @import 'bower_components/susy/sass/susy';
 
-//import partials
-@import "partials/character";
-@import "partials/endGame";
-@import "partials/game";
-@import "partials/intro";
-@import "partials/nav";
+    //Import partials
+    @import "partials/variables";
+    @import "partials/base";
+    @import "partials/mixins";
+    @import "partials/base";
+    @import "partials/layout";
+    @import "partials/mixins";
+
+    //import modules
+    @import "partials/modules/character";
+    @import "partials/modules/endGame";
+    @import "partials/modules/game";
+    @import "partials/modules/intro";
+    @import "partials/modules/nav";
