@@ -1,0 +1,13 @@
+//Import core
+@import "variables";
+@import "mixins";
+@import "base";
+@import "layout";
+@import "mixins";
+
+//import partials
+@import "partials/character";
+@import "partials/endGame";
+@import "partials/game";
+@import "partials/intro";
+@import "partials/nav";
