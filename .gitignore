@@ -1,7 +1,7 @@
 .vscode/*
-.design/*
-./images/*
-./sounds/*
+design/*
+images/*
+sounds/*
 ./src/bower_components/*
 
 
