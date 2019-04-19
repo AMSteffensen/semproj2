@@ -1,3 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Cinzel:400,700,900");
+body {
+  font: 700 1em/1.5em "Cinzel Decorative", cursive;
+}
 
 /*# sourceMappingURL=style.css.map */

@@ -4,5 +4,16 @@
 //@include border-box-sizing;
 
 //Add color pallete
-$color-primary: #dc7b4e;
-$color-secondary: #dcc24e;
+$color-primary : #dc7b4e;
+$color-secondary : #dcc24e;
+
+//font variables
+$font-primary: 'Cinzel Decorative',
+cursive;
+
+$normal : 400;
+$bold: 700;
+$black: 900;
+
+$headFont: $normal 1.5em/1.5em $font-primary;
+$mainFont: $bold 1em/1.5em $font-primary;
