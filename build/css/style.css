@@ -7,6 +7,7 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 @import url("https://fonts.googleapis.com/css?family=Cinzel:400,700,900");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700,900");
 html {
   line-height: 1.15;
   /* 1 */
@@ -6021,18 +6022,17 @@ readers do not read off random characters that represent icons */
 }
 
 /*Button mixin: https://codepen.io/jason-kinney/pen/AqbCi */
-.wrap {
-  margin: 0 auto;
-  width: 800px;
-  text-align: center;
-}
-
 body {
-  font: 700 1em/1.5em "Cinzel Decorative", cursive;
+  font: 400 1em/1.5em "Montserrat", sans-serif;
 }
 
-p {
-  color: #233d4d;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font: 400 1.5em/1.5em "Cinzel Decorative", cursive;
 }
 
 nav ul {
@@ -6052,15 +6052,18 @@ button, [type=button], [type=reset], [type=submit] {
   background-color: #aef23a;
 }
 
+button:focus, [type=button]:focus, [type=reset]:focus, [type=submit]:focus,
 button:hover, [type=button]:hover, [type=reset]:hover, [type=submit]:hover {
-  background: #2ecc71;
+  background: #aef23a;
 }
+button:focus:hover, [type=button]:focus:hover, [type=reset]:focus:hover, [type=submit]:focus:hover,
 button:hover:hover, [type=button]:hover:hover, [type=reset]:hover:hover, [type=submit]:hover:hover {
-  background: #26ab5f;
+  background: #9eef14;
   transition: all 0.3s ease;
 }
+button:focus:active, [type=button]:focus:active, [type=reset]:focus:active, [type=submit]:focus:active,
 button:hover:active, [type=button]:hover:active, [type=reset]:hover:active, [type=submit]:hover:active {
-  background: #176437;
+  background: #6aa20b;
 }
 
 /* INPUTS */
@@ -6073,6 +6076,11 @@ button:hover:active, [type=button]:hover:active, [type=reset]:hover:active, [typ
 [type=color]:focus, [type=date]:focus, [type=datetime]:focus, [type=datetime-local]:focus, [type=email]:focus, [type=month]:focus, [type=number]:focus, [type=password]:focus, [type=search]:focus, [type=tel]:focus, [type=text]:focus, [type=time]:focus, [type=url]:focus, [type=week]:focus, input:not([type]):focus, textarea:focus,
 [type=color]:hover, [type=date]:hover, [type=datetime]:hover, [type=datetime-local]:hover, [type=email]:hover, [type=month]:hover, [type=number]:hover, [type=password]:hover, [type=search]:hover, [type=tel]:hover, [type=text]:hover, [type=time]:hover, [type=url]:hover, [type=week]:hover, input:not([type]):hover, textarea:hover {
   border: 1px solid #ff3a00;
+}
+
+.wrap {
+  margin: 0 auto;
+  width: 800px;
 }
 
 .site-header {

@@ -1,17 +1,15 @@
-.wrap {
-    margin: 0 auto;
-    width: 800px;
-    text-align: center;
-}
-
 body {
     font: $mainFont;
 }
 
-p {
-    color: $color-dark;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font: $headFont;
 }
-
 
 nav {
 
@@ -36,6 +34,7 @@ nav {
     background-color: $color-primary;
 }
 
+#{$all-buttons-focus},
 #{$all-buttons-hover} {
     @include button-bg($color-primary);
 }
