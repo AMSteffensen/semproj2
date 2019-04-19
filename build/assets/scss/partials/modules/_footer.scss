@@ -1,3 +1,14 @@
+.site-footer {
+    background-color: $color-dark;
+}
+
 .social-menu a {
     color: $color-blue;
+
+    //ICONS
+    &.twitter:before {
+        content: '\f099';
+        font-family: FontAwesome;
+        padding-right: 5px;
+    }
 }

@@ -1,3 +1,9 @@
+.wrap {
+    margin: 0 auto;
+    width: 800px;
+    text-align: center;
+}
+
 body {
     font: $mainFont;
 }
@@ -6,12 +12,6 @@ p {
     color: $color-dark;
 }
 
-button {
-    color: $color-white;
-    padding: 0.5em;
-    font: $headFont;
-    background-color: $color-secondary;
-}
 
 nav {
 
@@ -28,9 +28,26 @@ nav {
     }
 }
 
+/* BUTTONS */
 
-// #{headings()} {
-//     font: $headFont;
-//     color: $headColor;
-//     font-weight: $black;
-// }
+#{$all-buttons} {
+    padding: 5px 10px;
+    border-radius: 3px;
+    background-color: $color-primary;
+}
+
+#{$all-buttons-hover} {
+    @include button-bg($color-primary);
+}
+
+/* INPUTS */
+#{$all-text-inputs} {
+    border: 1px solid #ccc;
+}
+
+/* INPUTS: STATES */
+#{$all-text-inputs-active},
+#{$all-text-inputs-focus},
+#{$all-text-inputs-hover} {
+    border: 1px solid $color-secondary;
+}
