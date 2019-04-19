@@ -342,8 +342,58 @@ body {
   font: 700 1em/1.5em "Cinzel Decorative", cursive;
 }
 
+p {
+  color: #233d4d;
+}
+
+button {
+  color: #fafef9;
+  padding: 0.5em;
+  font: 400 1.5em/1.5em "Cinzel Decorative", cursive;
+  background-color: #ff3a00;
+}
+
+nav ul {
+  list-style: none;
+}
+nav li {
+  display: inline-block;
+}
+nav a {
+  padding: 0 10px;
+}
+
 body {
   font: 700 1em/1.5em "Cinzel Decorative", cursive;
+}
+
+p {
+  color: #233d4d;
+}
+
+button {
+  color: #fafef9;
+  padding: 0.5em;
+  font: 400 1.5em/1.5em "Cinzel Decorative", cursive;
+  background-color: #ff3a00;
+}
+
+nav ul {
+  list-style: none;
+}
+nav li {
+  display: inline-block;
+}
+nav a {
+  padding: 0 10px;
+}
+
+.header-nav a {
+  color: #01baef;
+}
+
+.social-menu a {
+  color: #01baef;
 }
 
 /*# sourceMappingURL=style.css.map */

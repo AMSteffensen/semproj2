@@ -2,6 +2,33 @@ body {
     font: $mainFont;
 }
 
+p {
+    color: $color-dark;
+}
+
+button {
+    color: $color-white;
+    padding: 0.5em;
+    font: $headFont;
+    background-color: $color-secondary;
+}
+
+nav {
+
+    ul {
+        list-style: none;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+    a {
+        padding: 0 10px;
+    }
+}
+
+
 // #{headings()} {
 //     font: $headFont;
 //     color: $headColor;
