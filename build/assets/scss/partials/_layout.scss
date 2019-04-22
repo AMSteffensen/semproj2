@@ -1,5 +1,25 @@
+$susy: (columns: 12,
+gutters: 1/6,
+global-box-sizing: border-box);
+
 .wrap {
-    margin: 0 auto;
-    width: 800px;
-    //text-align: center;
+    //@include container(70%);
+}
+
+
+
+/* MAIN NAVIGATION */
+nav {
+
+    ul {
+        list-style: none;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+    a {
+        padding: 0 10px;
+    }
 }

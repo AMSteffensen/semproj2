@@ -1,0 +1,17 @@
+.character {
+    width: 350px;
+    height: 250px;
+    display: flex;
+
+    &-select {
+        border: 2px solid red;
+    }
+
+    &-img {
+        //width: 100%;
+    }
+
+    &:active {
+        border: 2px solid blue;
+    }
+}

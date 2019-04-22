@@ -1,5 +1,20 @@
+/* RESET */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+}
+
+/* TYPOGRAPHY */
 body {
     font: $mainFont;
+    font-size: 16px;
+    //font-size: modular-scale(2);
+    line-height: 1.6em;
 }
 
 h1,
@@ -9,25 +24,10 @@ h4,
 h5,
 h6 {
     font: $headFont;
-}
-
-nav {
-
-    ul {
-        list-style: none;
-    }
-
-    li {
-        display: inline-block;
-    }
-
-    a {
-        padding: 0 10px;
-    }
+    //font-size: modular-scale(2);
 }
 
 /* BUTTONS */
-
 #{$all-buttons} {
     padding: 5px 10px;
     border-radius: 3px;
@@ -37,16 +37,4 @@ nav {
 #{$all-buttons-focus},
 #{$all-buttons-hover} {
     @include button-bg($color-primary);
-}
-
-/* INPUTS */
-#{$all-text-inputs} {
-    border: 1px solid #ccc;
-}
-
-/* INPUTS: STATES */
-#{$all-text-inputs-active},
-#{$all-text-inputs-focus},
-#{$all-text-inputs-hover} {
-    border: 1px solid $color-secondary;
 }
