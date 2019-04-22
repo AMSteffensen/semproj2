@@ -1,4 +1,4 @@
-const cards = document.querySelectorAll('.character');
+const cards = document.querySelectorAll('.character-select');
 
 let hasSelectedCharacter = false;
 let firstCharacter, secondCharacter;
@@ -27,7 +27,11 @@ function selectCharacter() {
             firstCharacter,
             secondCharacter
         });
-        console.log('Player two has selected.')
+        console.log('Player two has selected.');
+
+        //check character that is selected
+        console.log(firstCharacter.dataset.character);
+        console.log(secondCharacter.dataset.character);
     }
 }
 
