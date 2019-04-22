@@ -6089,10 +6089,9 @@ nav a {
 .character-select {
   border: 2px solid red;
 }
-.character:active {
+.character-select:active {
   border: 2px solid blue;
 }
-
 .site-header {
   color: #fafef9;
   font-size: 1em;
