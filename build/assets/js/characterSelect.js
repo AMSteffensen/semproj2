@@ -12,6 +12,8 @@ function selectCharacter() {
     if (!hasSelectedCharacter) {
         hasSelectedCharacter = true;
         firstCharacter = this;
+        //remove character after selection
+        firstCharacter.style.display = 'none';
 
         console.log({
             hasSelectedCharacter,
@@ -32,7 +34,17 @@ function selectCharacter() {
         //check character that is selected
         console.log(firstCharacter.dataset.character);
         console.log(secondCharacter.dataset.character);
+
+        //remove character after selection
+        secondCharacter.style.display = 'none';
+
     }
+}
+
+
+//Start game
+function startGame() {
+    //when both players have slected a character, start game.
 }
 
 cards.forEach(card => card.addEventListener('click', selectCharacter));
