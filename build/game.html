@@ -6,42 +6,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" href="assets/css/style.css">
   <style>
     body {
       background-image: url('../images/background.png');
       background-size: cover;
     }
-
-    .player {
-      animation-name: move;
-      animation-duration: 2s;
-
-      height: 24px;
-      width: 24px;
-    }
-
-    @keyframes move {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(150px);
-      }
-    }
   </style>
+
 </head>
 
 <body>
-  <div class="wrapper">
-    <img src="assets/images/player.png" width="150" alt="background" class="player">
-    <img src="assets/images/map.png" width="150" alt="background" class="map">
+
+  <div id="content">
+    <canvas width="400" height="400" id="canvas1">
+      Your browser does not support the Canvas element
+    </canvas>
+    <p>
+      <button id="btnStop">Stop Animation</button>
+    </p>
   </div>
 
 
-  <div class="button">
-    <button>Roll</button>
+
+  <div class="wrap">
+    <div class="game">
+      <img src="assets/images/player.png" width="150" alt="background" class="player">
+      <img src="assets/images/map.png" width="150" alt="background" class="map">
+
+      <div class="button">
+        <button>Roll</button>
+      </div>
+    </div>
   </div>
+
+
+
+  <script>
+    class Stage {
+      constructor() {
+        this.tileSize = 20;
+        this.map = [
+          [1, 0],
+          [0, 1]
+        ];
+      }
+      draw(ctx) {
+        this.map.forEach((row, y) => {
+          row.forEach((id, x) => {
+            let xpos = x * this.tileSize;
+            let ypos = y * this.tileSize;
+            ctx.save();
+            ctx.beginPath();
+            ctx.strokeRect(xpos, ypos, this.tileSize, this.tileSize);
+            ctx.fillStyle = id ? "black" : "lightgray";
+            ctx.fillRect(xpos, ypos, this.tileSize, this.tileSize);
+            ctx.stroke();
+            ctx.restore();
+          });
+        });
+      }
+    }
+    class Game {
+      constructor() {
+        let canvas = document.createElement("canvas");
+        let stage = new Stage();
+        canvas.width = stage.tileSize * stage.map[0].length;
+        canvas.height = stage.tileSize * stage.map.le;
+        document.body.appendChild(canvas);
+        let ctx = canvas.getContext("2d");
+        stage.draw(ctx);
+      }
+    }
+
+    //new Game();
+
+
+
+    window.addEventListener("load", init);
+
+    // Stop the current animation when clicked
+    document.getElementById("btnStop").addEventListener("click", function () {
+      cancelAnimationFrame(animationRef);
+      console.log("hello");
+
+
+    })
+
+    // get a reference to the canvas element
+    cvs = document.querySelector("#canvas1");
+    ctx = cvs.getContext("2d");
+
+    // set up the animation constants and initial state
+    var rectX = 0,
+      rectY = 200,
+      rectW = 40;
+    var rectDir = 2;
+    var canvas = context = null;
+    var animationRef = null;
+
+    // Initializes each canvas drawing state
+    function init() {
+      canvas = document.getElementById('canvas1');
+      context = canvas.getContext("2d");
+
+      blank(context);
+
+      // start the animation by requesting a time slice
+      // to draw the scene updates
+      animationRef = requestAnimationFrame(anim)
+    }
+
+    // Erases the given canvas and draws a colored background
+    function blank(theContext) {
+      // erase the canvas before each update cycle
+      theContext.fillStyle = "#00ddee";
+      theContext.fillRect(0, 0, theContext.canvas.width, theContext.canvas.height);
+    }
+  </script>
 </body>
 
 </html>

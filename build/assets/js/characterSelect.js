@@ -41,10 +41,39 @@ function selectCharacter() {
     }
 }
 
+//add events lister to cards
+cards.forEach(card => card.addEventListener('click', selectCharacter));
+
+
+/* when button clicked, check what target that is clicked, if it matches charcter store selection to local storage 
+
+const character
+if (target.matches(character) {
+    console.log(target.value)
+}
+
+*/
+
+
+
 
 //Start game
 function startGame() {
     //when both players have slected a character, start game.
+
+
 }
 
-cards.forEach(card => card.addEventListener('click', selectCharacter));
+
+
+
+function fetchData(Url, id) {
+    fetch(Url)
+        .then((response) => {
+            return response.json();
+        })
+        .then((result) = {
+            console.log(result);
+            populateCardInfo(result, id);
+        });
+}

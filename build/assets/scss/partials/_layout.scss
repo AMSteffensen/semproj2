@@ -1,10 +1,37 @@
-$susy: (columns: 12,
-gutters: 1/6,
-global-box-sizing: border-box);
+.site-container {
+    display: grid;
+}
 
 .wrap {
     //@include container(70%);
+    display: grid;
+    grid-template-columns: repeat(1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
 }
+
+.site-inner {
+
+
+    //hide pages
+
+
+}
+
+.game-info {
+    display: none;
+}
+
+.sidebar {
+    display: none;
+}
+
+.site-footer {
+    display: none;
+}
+
+
+
 
 
 /* MAIN NAVIGATION */

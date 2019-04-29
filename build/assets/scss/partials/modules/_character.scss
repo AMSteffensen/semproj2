@@ -1,18 +1,39 @@
+// .character {
+//     display: flex;
+
+
+//     &-select {
+//         border: 2px solid red;
+
+//         &:active {
+//             border: 2px solid blue;
+//         }
+//     }
+
+//     &-img {
+//         width: 100%;
+//     }
+
+// }
+
 .character {
-    width: 350px;
-    height: 250px;
-    display: flex;
+    display: grid;
+    grid: repeat(2, 60px) / auto-flow 50px;
+}
 
-    &-select {
-        border: 2px solid red;
+.character-card {
+    background-color: $color-dark;
 
-        &:active {
-            border: 2px solid blue;
-        }
+
+    &__img {
+        height: 50px;
+        width: 50px;
+        display: inline-block;
+        border: 5px outset $color-blue;
     }
 
-    &-img {
-        //width: 100%;
+    &:hover {
+        cursor: pointer;
+        border: 5px inset $color-secondary;
     }
-
 }

@@ -1,0 +1,29 @@
+//temporary screen hide
+.site-inner {
+    //display: none;
+}
+
+.wrap {
+    position: relative;
+
+    .player {
+        position: absolute;
+        animation-name: move;
+        animation-duration: 2s;
+
+        height: 24px;
+        width: 24px;
+
+        @keyframes move {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(150px);
+            }
+        }
+
+
+    }
+}
