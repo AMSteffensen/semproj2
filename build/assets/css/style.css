@@ -4332,9 +4332,6 @@ button:hover, [type='button']:hover, [type='reset']:hover, [type='submit']:hover
 .sidebar {
   display: none; }
 
-.site-footer {
-  display: none; }
-
 /* MAIN NAVIGATION */
 nav ul {
   list-style: none; }
@@ -4358,19 +4355,48 @@ nav a {
     cursor: pointer;
     border: 5px inset #ff3a00; }
 
-.wrap {
-  position: relative; }
-  .wrap .player {
-    position: absolute;
-    animation-name: move;
-    animation-duration: 2s;
-    height: 24px;
-    width: 24px; }
-@keyframes move {
-  from {
-    transform: translateX(0); }
-  to {
-    transform: translateX(150px); } }
+* {
+  box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background-image: url("https://i.imgur.com/7PgXGyf.jpg");
+  background-position: center;
+  background-repeat: repeat;
+  background-size: 100px;
+  padding-top: 50px; }
+
+.board {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 50px repeat(4, 50px) 50px;
+  grid-template-rows: repeat(4, 50px) 50px;
+  grid-gap: 1rem;
+  background-color: #333;
+  width: 500px;
+  height: 400px;
+  padding-top: 2em; }
+  .board__tile {
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d9d9; }
+  .board__tile--name {
+    display: flex;
+    align-self: flex-end; }
+
+.dice {
+  display: flex;
+  position: absolute;
+  left: 600px; }
+
+.characters {
+  display: flex;
+  position: absolute;
+  left: 600px;
+  top: 200px; }
+
 .site-header {
   color: #fafef9;
   font-size: 1em;

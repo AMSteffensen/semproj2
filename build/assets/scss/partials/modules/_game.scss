@@ -1,29 +1,53 @@
-//temporary screen hide
-.site-inner {
-    //display: none;
-}
+ * {
+     box-sizing: border-box;
+ }
 
-.wrap {
-    position: relative;
+ body {
+     margin: 0;
+     background-image: url("https://i.imgur.com/7PgXGyf.jpg");
+     background-position: center;
+     background-repeat: repeat;
+     background-size: 100px;
+     padding-top: 50px;
+ }
 
-    .player {
-        position: absolute;
-        animation-name: move;
-        animation-duration: 2s;
+ .board {
+     display: grid;
+     justify-content: center;
+     //grid-template-columns: repeat(5, 10vw);
+     grid-template-columns: 50px repeat(4, 50px) 50px;
+     grid-template-rows: repeat(4, 50px) 50px;
+     grid-gap: 1rem;
+     background-color: #333;
+     width: 500px;
+     height: 400px;
+     padding-top: 2em;
 
-        height: 24px;
-        width: 24px;
+     &__tile {
+         border: 2px solid black;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         background-color: #d9d9;
+     }
 
-        @keyframes move {
-            from {
-                transform: translateX(0);
-            }
+     &__tile--name {
+         display: flex;
+         align-self: flex-end;
+     }
 
-            to {
-                transform: translateX(150px);
-            }
-        }
+ }
 
 
-    }
-}
+ .dice {
+     display: flex;
+     position: absolute;
+     left: 600px;
+ }
+
+ .characters {
+     display: flex;
+     position: absolute;
+     left: 600px;
+     top: 200px;
+ }

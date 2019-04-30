@@ -9,8 +9,59 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
     body {
-      background-image: url('../images/background.png');
-      background-size: cover;
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background-image: url("https://i.imgur.com/7PgXGyf.jpg");
+        background-position: center;
+        background-repeat: repeat;
+        background-size: 100px;
+        padding-top: 50px;
+      }
+
+      .board {
+        display: grid;
+        justify-content: center;
+        //grid-template-columns: repeat(5, 10vw);
+        grid-template-columns: 50px repeat(4, 50px) 50px;
+        grid-template-rows: repeat(4, 50px) 50px;
+        grid-gap: 1rem;
+        background-color: #333;
+        width: 500px;
+        height: 400px;
+        padding-top: 2em;
+
+        &__tile {
+          border: 2px solid black;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #d9d9;
+        }
+
+        &__tile--name {
+          display: flex;
+          align-self: flex-end;
+        }
+
+      }
+
+
+      .dice {
+        display: flex;
+        position: absolute;
+        left: 600px;
+      }
+
+      .characters {
+        display: flex;
+        position: absolute;
+        left: 600px;
+        top: 200px;
+      }
     }
   </style>
 
@@ -18,112 +69,121 @@
 
 <body>
 
-  <div id="content">
-    <canvas width="400" height="400" id="canvas1">
-      Your browser does not support the Canvas element
-    </canvas>
-    <p>
-      <button id="btnStop">Stop Animation</button>
-    </p>
-  </div>
-
-
-
-  <div class="wrap">
-    <div class="game">
-      <img src="assets/images/player.png" width="150" alt="background" class="player">
-      <img src="assets/images/map.png" width="150" alt="background" class="map">
-
-      <div class="button">
-        <button>Roll</button>
-      </div>
+  <div class="board">
+    <div class="board__tile start" id="tile1">
+      <div class="board__tile--number">1</div>
+      <div class="board__tile--name">Start</div>
     </div>
-  </div>
+    <div class="board__tile" id="tile2">
+      <div class="board__tile--number">2</div>
+    </div>
+    <div class="board__tile" id="tile3">
+      <div class="board__tile--number">3</div>
+    </div>
+    <div class="board__tile" id="tile4">
+      <div class="board__tile--number">4</div>
+    </div>
+    <div class="board__tile" id="tile5">
+      <div class="board__tile--number">5</div>
+    </div>
+    <div class="board__tile" id="tile6">
+      <div class="board__tile--number">6</div>
+    </div>
+    <div class="board__tile" id="tile7">
+      <div class="board__tile--number">7</div>
+    </div>
+    <div class="board__tile" id="tile8">
+      <div class="board__tile--number">8</div>
+    </div>
+    <div class="board__tile" id="tile9">
+      <div class="board__tile--number">9</div>
+    </div>
+    <div class="board__tile" id="tile10">
+      <div class="board__tile--number">10</div>
+    </div>
+    <div class="board__tile" id="tile11">
+      <div class="board__tile--number">11</div>
+    </div>
+    <div class="board__tile" id="tile12">
+      <div class="board__tile--number">12</div>
+    </div>
+    <div class="board__tile" id="tile13">
+      <div class="board__tile--number">13</div>
+    </div>
+    <div class="board__tile" id="tile14">
+      <div class="board__tile--number">14</div>
+    </div>
+    <div class="board__tile" id="tile15">
+      <div class="board__tile--number">15</div>
+    </div>
+    <div class="board__tile" id="tile16">
+      <div class="board__tile--number">16</div>
+    </div>
+    <div class="board__tile" id="tile17">
+      <div class="board__tile--number">17</div>
+    </div>
+    <div class="board__tile" id="tile18">
+      <div class="board__tile--number">18</div>
+    </div>
+    <div class="board__tile" id="tile19">
+      <div class="board__tile--number">19</div>
+    </div>
+    <div class="board__tile" id="tile20">
+      <div class="board__tile--number">20</div>
+    </div>
+    <div class="board__tile" id="tile21">
+      <div class="board__tile--number">21</div>
+    </div>
+    <div class="board__tile" id="tile22">
+      <div class="board__tile--number">22</div>
+    </div>
+    <div class="board__tile" id="tile23">
+      <div class="board__tile--number">23</div>
+    </div>
+    <div class="board__tile" id="tile24">
+      <div class="board__tile--number">24</div>
+    </div>
+    <div class="board__tile" id="tile25">
+      <div class="board__tile--number">25</div>
+    </div>
+    <div class="board__tile" id="tile26">
+      <div class="board__tile--number">26</div>
+    </div>
+    <div class="board__tile" id="tile27">
+      <div class="board__tile--number">27</div>
+    </div>
+    <div class="board__tile" id="tile28">
+      <div class="board__tile--number">28</div>
+    </div>
+    <div class="board__tile" id="tile29">
+      <div class="board__tile--number">29</div>
+    </div>
+    <div class="board__tile" id="tile30">
+      <div class="board__tile--number">30</div>
+      <div class="board__tile--name">End</div>
+    </div>
+
+    <div class="dice">
+      <p>Dice</p>
+    </div>
+
+    <div class="characters">
+      <p>Player One</p>
+      <p>Player Two</p>
+    </div>
 
 
 
-  <script>
-    class Stage {
-      constructor() {
-        this.tileSize = 20;
-        this.map = [
-          [1, 0],
-          [0, 1]
-        ];
+    <script>
+      function rollDice() {
+
+        //throw dice no number greater than 6
+        const maxNumber = 6;
+        var rollDice = Math.ceil(Math.random() * max);
       }
-      draw(ctx) {
-        this.map.forEach((row, y) => {
-          row.forEach((id, x) => {
-            let xpos = x * this.tileSize;
-            let ypos = y * this.tileSize;
-            ctx.save();
-            ctx.beginPath();
-            ctx.strokeRect(xpos, ypos, this.tileSize, this.tileSize);
-            ctx.fillStyle = id ? "black" : "lightgray";
-            ctx.fillRect(xpos, ypos, this.tileSize, this.tileSize);
-            ctx.stroke();
-            ctx.restore();
-          });
-        });
-      }
-    }
-    class Game {
-      constructor() {
-        let canvas = document.createElement("canvas");
-        let stage = new Stage();
-        canvas.width = stage.tileSize * stage.map[0].length;
-        canvas.height = stage.tileSize * stage.map.le;
-        document.body.appendChild(canvas);
-        let ctx = canvas.getContext("2d");
-        stage.draw(ctx);
-      }
-    }
-
-    //new Game();
-
-
-
-    window.addEventListener("load", init);
-
-    // Stop the current animation when clicked
-    document.getElementById("btnStop").addEventListener("click", function () {
-      cancelAnimationFrame(animationRef);
-      console.log("hello");
-
-
-    })
-
-    // get a reference to the canvas element
-    cvs = document.querySelector("#canvas1");
-    ctx = cvs.getContext("2d");
-
-    // set up the animation constants and initial state
-    var rectX = 0,
-      rectY = 200,
-      rectW = 40;
-    var rectDir = 2;
-    var canvas = context = null;
-    var animationRef = null;
-
-    // Initializes each canvas drawing state
-    function init() {
-      canvas = document.getElementById('canvas1');
-      context = canvas.getContext("2d");
-
-      blank(context);
-
-      // start the animation by requesting a time slice
-      // to draw the scene updates
-      animationRef = requestAnimationFrame(anim)
-    }
-
-    // Erases the given canvas and draws a colored background
-    function blank(theContext) {
-      // erase the canvas before each update cycle
-      theContext.fillStyle = "#00ddee";
-      theContext.fillRect(0, 0, theContext.canvas.width, theContext.canvas.height);
-    }
-  </script>
+    </script>
 </body>
 
 </html>
+
+</div>
