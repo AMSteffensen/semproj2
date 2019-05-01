@@ -4304,27 +4304,18 @@ h6 {
 button, [type='button'], [type='reset'], [type='submit'] {
   padding: 5px 10px;
   border-radius: 3px;
-  background-color: #aef23a; }
+  background-color: #261e35; }
 
 button:focus, [type='button']:focus, [type='reset']:focus, [type='submit']:focus,
 button:hover, [type='button']:hover, [type='reset']:hover, [type='submit']:hover {
-  background: #aef23a; }
+  background: #261e35; }
   button:focus:hover, [type='button']:focus:hover, [type='reset']:focus:hover, [type='submit']:focus:hover,
   button:hover:hover, [type='button']:hover:hover, [type='reset']:hover:hover, [type='submit']:hover:hover {
-    background: #9eef14;
+    background: #130f1b;
     transition: all 0.3s ease; }
   button:focus:active, [type='button']:focus:active, [type='reset']:focus:active, [type='submit']:focus:active,
   button:hover:active, [type='button']:hover:active, [type='reset']:hover:active, [type='submit']:hover:active {
-    background: #6aa20b; }
-
-.site-container {
-  display: grid; }
-
-.wrap {
-  display: grid;
-  grid-template-columns: repeat(1fr);
-  grid-gap: 10px;
-  grid-auto-rows: minmax(100px, auto); }
+    background: black; }
 
 .game-info {
   display: none; }
@@ -4332,39 +4323,33 @@ button:hover, [type='button']:hover, [type='reset']:hover, [type='submit']:hover
 .sidebar {
   display: none; }
 
+.site-header {
+  background-color: #261e35;
+  display: flex;
+  flex-direction: column; }
+
 /* MAIN NAVIGATION */
-nav ul {
-  list-style: none; }
-nav li {
-  display: inline-block; }
-nav a {
-  padding: 0 10px; }
+nav {
+  display: flex;
+  flex-flow: column;
+  background-color: #ebbd4b; }
+  nav-char-img {
+    max-width: 100px; }
 
 .character {
   display: grid;
   grid: repeat(2, 60px)/auto-flow 50px; }
 
 .character-card {
-  background-color: #233d4d; }
+  background-color: #e7e7e7; }
   .character-card__img {
     height: 50px;
     width: 50px;
     display: inline-block;
-    border: 5px outset #01baef; }
+    border: 5px outset #f0110d; }
   .character-card:hover {
     cursor: pointer;
-    border: 5px inset #ff3a00; }
-
-* {
-  box-sizing: border-box; }
-
-body {
-  margin: 0;
-  background-image: url("https://i.imgur.com/7PgXGyf.jpg");
-  background-position: center;
-  background-repeat: repeat;
-  background-size: 100px;
-  padding-top: 50px; }
+    border: 5px inset #ebbd4b; }
 
 .board {
   display: grid;
@@ -4396,26 +4381,5 @@ body {
   position: absolute;
   left: 600px;
   top: 200px; }
-
-.site-header {
-  color: #fafef9;
-  font-size: 1em;
-  background-color: #233d4d; }
-
-.site-title {
-  color: #aef23a; }
-
-.header-nav a {
-  color: #01baef; }
-
-.site-footer {
-  background-color: #233d4d; }
-
-.social-menu a {
-  color: #01baef; }
-  .social-menu a.twitter:before {
-    content: '\f099';
-    font-family: FontAwesome;
-    padding-right: 5px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="103.729" height="107.489" viewBox="0 0 103.729 107.489">
+  <g id="Group_120" data-name="Group 120" transform="translate(-113.445 -34.831)">
+    <g id="Group_119" data-name="Group 119" transform="translate(-65 -4)">
+      <g id="Sword_2" data-name="Sword 2" transform="translate(192.382 40.37)">
+        <path id="Path_65" data-name="Path 65" d="M125.234-3288.428c1.218-1.144,13.693,2.445,24.513,14.124S183-3240.566,183-3240.566l2.065,1.542a5.506,5.506,0,0,1,5.382,0,77.073,77.073,0,0,1,7.3,4.443L178.9-3215.7l-4.723-8.244a2.733,2.733,0,0,1,0-3.556c1.434-2.133-1.251-2.822-1.251-2.822l-36.2-35.824a59.258,59.258,0,0,1-7.3-10.256C126.635-3281.457,124.663-3287.892,125.234-3288.428Z" transform="translate(-125.098 3288.63)" fill="#ebbd4b" stroke="#707070" stroke-width="3"/>
+        <path id="Path_66" data-name="Path 66" d="M366.764-3035.525l10.173-10.015,2.349,1.963-10.91,10.678" transform="translate(-318.98 3093.575)" fill="none" stroke="#707070" stroke-width="1"/>
+        <path id="Path_67" data-name="Path 67" d="M177.835-3235.487l-50.2-50.149-2.686-2.683" transform="translate(-124.945 3288.38)" fill="#3b2121" stroke="#707070" stroke-width="1"/>
+        <path id="Path_68" data-name="Path 68" d="M436.177-2981.566l21.767,22.292h1.2v6.734H452.95l-.535-1.19L430.163-2975.8" transform="translate(-369.851 3042.243)" fill="#261e35" stroke="#707070" stroke-width="1"/>
+        <path id="Path_69" data-name="Path 69" d="M535.716-2871.112l5.326-5.436,1.624,1.513s-5.8,5.536-5.513,5.474" transform="translate(-454.547 2957.976)" fill="none" stroke="#707070" stroke-width="1"/>
+      </g>
+      <g id="Sword" transform="translate(178.945 40.37)">
+        <path id="Path_65-2" data-name="Path 65" d="M197.645-3288.428c-1.218-1.144-13.693,2.445-24.513,14.124s-33.254,33.739-33.254,33.739l-2.065,1.542a5.506,5.506,0,0,0-5.382,0,77.071,77.071,0,0,0-7.3,4.443l18.847,18.877,4.723-8.244a2.733,2.733,0,0,0,0-3.556c-1.434-2.133,1.251-2.822,1.251-2.822l36.2-35.824a59.258,59.258,0,0,0,7.3-10.256C196.244-3281.457,198.216-3287.892,197.645-3288.428Z" transform="translate(-108.489 3288.63)" fill="#ebbd4b" stroke="#707070" stroke-width="3"/>
+        <path id="Path_66-2" data-name="Path 66" d="M379.286-3035.525l-10.173-10.015-2.349,1.963,10.91,10.678" transform="translate(-337.778 3093.575)" fill="none" stroke="#707070" stroke-width="1"/>
+        <path id="Path_67-2" data-name="Path 67" d="M124.945-3235.487l50.2-50.149,2.686-2.683" transform="translate(-88.543 3288.38)" fill="#3b2121" stroke="#707070" stroke-width="1"/>
+        <path id="Path_68-2" data-name="Path 68" d="M453.128-2981.566l-21.767,22.292h-1.2v6.734h6.192l.535-1.19,22.252-22.067" transform="translate(-430.163 3042.243)" fill="#261e35" stroke="#707070" stroke-width="1"/>
+        <path id="Path_69-2" data-name="Path 69" d="M542.666-2871.112l-5.326-5.436-1.624,1.513s5.8,5.536,5.513,5.474" transform="translate(-534.544 2957.976)" fill="none" stroke="#707070" stroke-width="1"/>
+      </g>
+      <g id="Seat" transform="translate(208.076 58.868)">
+        <path id="Path_56" data-name="Path 56" d="M-1530.639-616.351l24.426,2.4-2.27-29.892-15.772-1.4Z" transform="translate(1531.823 699.734)" fill="#261e35" stroke="#170202" stroke-width="3"/>
+        <path id="Path_57" data-name="Path 57" d="M-1415.54-631.934l18.81-13.554-6.661-4.218-.828-17.947-13.417,5.853" transform="translate(1441.15 717.719)" fill="#261e35" stroke="#170202" stroke-width="3"/>
+        <path id="Path_58" data-name="Path 58" d="M-1499.621-747.288l1.767-15-2.67-4.739h-19.81l-13.8,4.739-2.5,7.213,7.791,12.114,15.4,1.4" transform="translate(1536.632 797.457)" fill="#261e35" stroke="#170202" stroke-width="3"/>
+        <path id="Path_59" data-name="Path 59" d="M-1525.373-861.354s-1.193,3.466,12.75,4.046a55.268,55.268,0,0,0,23.756-4.046h8.417l1.941-28.213-36.031-.622.542,24.139h22.652" transform="translate(1527.618 896.282)" fill="#261e35" stroke="#170202" stroke-width="3"/>
+        <path id="Path_60" data-name="Path 60" d="M-1297.057-863.8l5.076-2.02,2.2-27.419-5.681,1.185" transform="translate(1344.398 898.731)" fill="#261e35" stroke="#170202" stroke-width="3"/>
+        <path id="Path_61" data-name="Path 61" d="M-1486.415-914.928l-1.678-.448v-.917l-1.845-1.56v-1.291l-.988-.312.12-1.565,47.382.715.29,1.161-.754.979-.481,1.535-1.167,1.468-.824,1.037" transform="translate(1499.957 921.02)" fill="#261e35" stroke="#170202" stroke-width="3"/>
+        <path id="Path_62" data-name="Path 62" d="M-1275.675-918.341l6.189-.23-.948,3.117-2.224,1.889" transform="translate(1327.241 919.252)" fill="#261e35" stroke="#170202" stroke-width="3"/>
+        <path id="Path_63" data-name="Path 63" d="M-1530.806-723.538s-1.542,3.409,14.258,2.717,18.4-1.682,18.4-1.682l4.428-1.035" transform="translate(1531.99 762.561)" fill="#261e35" stroke="#170202" stroke-width="3"/>
+        <path id="Path_64" data-name="Path 64" d="M262.887-3192.485l-11.1.736" transform="translate(-215.546 3222.034)" fill="#100101"/>
+        <line id="Line_2" data-name="Line 2" x2="11.659" transform="translate(35.595 30.336)" fill="none" stroke="#1c0202" stroke-width="3"/>
+        <line id="Line_3" data-name="Line 3" y1="0.395" x2="5.73" transform="translate(48.834 6.821)" fill="none" stroke="#070000" stroke-width="3"/>
+      </g>
+      <text id="OF" transform="translate(218.477 107.752)" fill="#fff" font-size="6" font-family="Cinzel-Regular, Cinzel" letter-spacing="-0.04em"><tspan x="0" y="0">OF</tspan></text>
+      <text id="SEATS" transform="translate(222.851 118.449) rotate(90)" fill="#fff" font-size="6" font-family="Cinzel-Regular, Cinzel" letter-spacing="-0.04em"><tspan x="0" y="0">SEATS</tspan></text>
+      <text id="GAME" transform="translate(227.171 76.925)" fill="#fff" font-size="6" font-family="Cinzel-Regular, Cinzel" letter-spacing="-0.04em"><tspan x="0" y="0">GAME</tspan></text>
+    </g>
+  </g>
+</svg>

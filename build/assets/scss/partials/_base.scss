@@ -38,3 +38,11 @@ h6 {
 #{$all-buttons-hover} {
     @include button-bg($color-primary);
 }
+
+.game-info {
+    display: none;
+}
+
+.sidebar {
+    display: none;
+}

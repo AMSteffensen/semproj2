@@ -1,5 +1,5 @@
 Compile and Watch SASS:
-sass scss/main.scss css/style.css --watch
+sass --watch scss/main.scss:css/style.css
 
 
 Features:
