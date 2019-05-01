@@ -24,6 +24,22 @@
     //         "nav preview preview";
     // }
     height: 100vh;
+
+    @media (min-width: 500px) {
+        grid-template-columns: repeat(auto-fill, minmax(2, 1fr));
+        grid-template-areas:
+            "header header"
+            "nav preview"
+            "nav preview";
+    }
+
+    // @media (min-width: 800px) {
+    //     grid-template-columns: repeat(auto-fill, minmax(3, 1fr));
+    //     grid-template-areas:
+    //         "header header header"
+    //         "nav preview preview"
+    //         "nav preview preview";
+    // }
 }
 
 .site-header {
