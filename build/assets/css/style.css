@@ -4329,7 +4329,7 @@ button:hover, [type='button']:hover, [type='reset']:hover, [type='submit']:hover
 .site-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(3, 1fr));
-  grid-template-areas: "header" "nav" "preview";
+  grid-template-areas: "header" "nav" "nav" "preview";
   height: 100vh; }
   @media (min-width: 500px) {
     .site-container {
@@ -4350,20 +4350,20 @@ button:hover, [type='button']:hover, [type='reset']:hover, [type='submit']:hover
   height: 600px; }
 
 /* MAIN NAVIGATION */
-.nav-char {
-  grid-area: nav; }
-  .nav-char-column {
-    background-color: #ebbd4b;
-    list-style: none;
-    margin: 0;
-    background-color: gray;
-    height: 100vh; }
-  .nav-char-img {
-    max-width: 100px;
-    max-height: 70px; }
+.nav-char-column {
+  background-color: #ebbd4b;
+  list-style: none;
+  margin: 0;
+  background-color: gray;
+  height: 100vh;
+  display: flex;
+  flex-direction: column; }
+.nav-char-img {
+  max-width: 100px;
+  max-height: 70px; }
 
 .wrap {
-  display: flex; }
+  padding: 1em; }
 
 .board {
   display: grid;

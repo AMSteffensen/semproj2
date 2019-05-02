@@ -1,79 +1,54 @@
-const cards = document.querySelectorAll('.character-select');
+const hound = document.getElementById('hound');
+const jamie = document.getElementById('jamie');
+const sam = document.getElementById('sam');
+const tyrion = document.getElementById('tyrion');
+const bran = document.getElementById('bran');
+const dude = document.getElementById('dude');
+const khaldrogo = document.getElementById('khaldrogo');
+const ladyred = document.getElementById('ladyred');
+const walker = document.getElementById('walker');
+const arya = document.getElementById('arya');
 
-let hasSelectedCharacter = false;
-let firstCharacter, secondCharacter;
+hound.addEventListener('click', function (event) {
+    alert('Player one selects The Hound');
+});
 
-function selectCharacter() {
-    // console.log('I was clicked');
-    // console.log(this);
-    this.classList.toggle('character-select');
+jamie.addEventListener('click', function (event) {
+    alert('Player one selects Jamie');
+});
 
-    //first player select
-    if (!hasSelectedCharacter) {
-        hasSelectedCharacter = true;
-        firstCharacter = this;
-        //remove character after selection
-        firstCharacter.style.display = 'none';
+sam.addEventListener('click', function (event) {
+    alert('Player one selects Sam');
+});
 
-        console.log({
-            hasSelectedCharacter,
-            firstCharacter
-        });
-        console.log('Player one has selected.');
-    } else {
-        //second player select
-        hasSelectedCharacter = false;
-        secondCharacter = this;
+tyrion.addEventListener('click', function (event) {
+    alert('Player one selects Tyrion');
+});
 
-        console.log({
-            firstCharacter,
-            secondCharacter
-        });
-        console.log('Player two has selected.');
+bran.addEventListener('click', function (event) {
+    alert('Player one selects Bran');
+});
 
-        //check character that is selected
-        console.log(firstCharacter.dataset.character);
-        console.log(secondCharacter.dataset.character);
+dude.addEventListener('click', function (event) {
+    alert('Player one selects Dude');
+});
 
-        //remove character after selection
-        secondCharacter.style.display = 'none';
+khaldrogo.addEventListener('click', function (event) {
+    alert('Player one selects Khal Drogo');
+});
 
-    }
-}
+ladyred.addEventListener('click', function (event) {
+    alert('Player one selects Ladyred');
+});
 
-//add events lister to cards
-cards.forEach(card => card.addEventListener('click', selectCharacter));
+walker.addEventListener('click', function (event) {
+    alert('Player one selects Walker');
+});
 
+arya.addEventListener('click', function (event) {
+    alert('Player one selects Arya');
+});
 
-/* when button clicked, check what target that is clicked, if it matches charcter store selection to local storage 
-
-const character
-if (target.matches(character) {
-    console.log(target.value)
-}
-
-*/
-
-
-
-
-//Start game
-function startGame() {
-    //when both players have slected a character, start game.
-
-
-}
-
-
-
-
-function fetchData(Url, id) {
-    fetch(Url)
-        .then((response) => {
-            return response.json();
-        })
-        .then((result) = {
-            console.log(result);
-            populateCardInfo(result, id);
-        });
+function showAlert(event) {
+    alert("click detected");
 }

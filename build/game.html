@@ -8,8 +8,38 @@
   <title>Document</title>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('roll').onclick = function () {
+      var rollResult = 'test';
+      document.getElementsByClassName('message')[0].textContent = rollResult;
+    }
+  });
+</script>
+
+<style>
+  .message {
+    background-color: gray;
+    color: white;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 250px;
+    padding: 2em;
+  }
+
+  .btn {
+    padding: 1em;
+    background-color: blue;
+    color: white;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+  }
+</style>
 
 <body>
+
 
   <div class="board">
     <div class="board__tile start" id="tile1">
@@ -105,9 +135,11 @@
       <div class="board__tile--name">End</div>
     </div>
 
-    <div class="dice">
-      <p>Dice</p>
-    </div>
+    <p class="message">
+    </p>
+
+    <button class="btn" id="roll">Roll</button>
+
 
     <div class="characters">
       <p>Player One</p>
