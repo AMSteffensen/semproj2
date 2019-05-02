@@ -15,3 +15,12 @@ function getCharacter() {
 
     //Store player one selection to local storage
 }
+
+
+
+//asynchronous javascript
+function two() {
+    setTimeout(function () {
+        console.log("b");
+    }, 2000);
+}
