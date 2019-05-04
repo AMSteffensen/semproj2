@@ -8,14 +8,6 @@
   <title>Document</title>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('roll').onclick = function () {
-      var rollResult = 'test';
-      document.getElementsByClassName('message')[0].textContent = rollResult;
-    }
-  });
-</script>
 
 <style>
   .message {
@@ -146,26 +138,10 @@
       <p>Player Two</p>
     </div>
 
-    <p id="hdr">0</p>
-    <button onclick="countClicks();">Click!</button>
+    <p id="number">0</p>
+    <button onClick="countClicks();" id="count">Click!</button>
 
-    <script>
-      function countClicks() {
-        var number = document.getElementById = "hdr";
-        var counter;
-        counter++;
-        number.innerHTML = counter;
-        //counter++;
-        //return counter++;
-        console.log(number);
-      }
-
-      function rollDice() {
-
-        //throw dice no number greater than 6
-        const maxNumber = 6;
-        var rollDice = Math.ceil(Math.random() * max);
-      }
+    <script src="assets/js/game.js">
     </script>
 </body>
 
