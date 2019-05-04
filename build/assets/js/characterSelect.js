@@ -1,3 +1,14 @@
+/*
+TODO: 
+Remove event listner when both players have selected character
+Fix local Storage
+Find character numbers for all characters to fetch from
+
+Clean up code
+Refactor code
+
+*/
+
 const hound = document.getElementById('hound');
 const jamie = document.getElementById('jamie');
 const sam = document.getElementById('sam');
@@ -35,8 +46,6 @@ var selectedArray = [];
 
 
 hound.addEventListener('click', function (event) {
-
-
 
     //state character name
     var character = 'Sandor';
@@ -116,7 +125,7 @@ bran.addEventListener('click', function (event) {
     selectedArray.push("Bran");
 
     //disable li element for further selection
-    hound.parentElement.disabled = true;
+    bran.parentElement.disabled = true;
 
     //check if game is ready to run
     isReady();
@@ -133,7 +142,7 @@ dude.addEventListener('click', function (event) {
     selectedArray.push("The Dude");
 
     //disable li element for further selection
-    hound.parentElement.disabled = true;
+    dude.parentElement.disabled = true;
 
     //check if game is ready to run
     isReady();
@@ -150,7 +159,7 @@ khaldrogo.addEventListener('click', function (event) {
     selectedArray.push("Khal Drogo");
 
     //disable li element for further selection
-    hound.parentElement.disabled = true;
+    khaldrogo.parentElement.disabled = true;
 
     //check if game is ready to run
     isReady();
@@ -167,7 +176,7 @@ ladyred.addEventListener('click', function (event) {
     selectedArray.push("Lady Red");
 
     //disable li element for further selection
-    hound.parentElement.disabled = true;
+    ladyred.parentElement.disabled = true;
 
     //check if game is ready to run
     isReady();
@@ -184,7 +193,7 @@ walker.addEventListener('click', function (event) {
     selectedArray.push("Walker");
 
     //disable li element for further selection
-    hound.parentElement.disabled = true;
+    walker.parentElement.disabled = true;
 
     //check if game is ready to run
     isReady();
@@ -201,8 +210,10 @@ arya.addEventListener('click', function (event) {
     selectedArray.push("Arya");
 
     //disable li element for further selection
-    hound.parentElement.disabled = true;
+    arya.parentElement.disabled = true;
 
+    //fetch data from api
+    getData('https://anapioficeandfire.com/api/characters/148', character);
     //check if game is ready to run
     isReady();
 });
@@ -225,7 +236,7 @@ function isReady() {
 function checkSelections(character) {
     // check selected arry for number of selections
     if (selectedArray.length == 0) {
-        alert('Pleayer 1 selected:' + character);
+        alert('Player 1 selected:' + character);
         //add selected character to local storage
         localStorage.setItem("Player 1", +character);
     } else if (selectedArray.length == 1) {
@@ -234,24 +245,6 @@ function checkSelections(character) {
         localStorage.setItem("Player 2", +character);
     }
 }
-
-
-
-
-
-
-
-
-
-
-const data = JSON.parse(localStorage.getItem('items'));
-
-function getCharacter() {
-    const data = JSON.parse(localStorage.getItem('items'));
-
-
-}
-
 
 
 
