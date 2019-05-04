@@ -4350,17 +4350,21 @@ button:hover, [type='button']:hover, [type='reset']:hover, [type='submit']:hover
   height: 600px; }
 
 /* MAIN NAVIGATION */
-.nav-char-column {
-  background-color: #ebbd4b;
-  list-style: none;
-  margin: 0;
-  background-color: gray;
-  height: 100vh;
-  display: flex;
-  flex-direction: column; }
-.nav-char-img {
-  max-width: 100px;
-  max-height: 70px; }
+.nav-char {
+  grid-area: nav;
+  display: grid;
+  grid-template-columns: auto auto; }
+  .nav-char-column {
+    background-color: #ebbd4b;
+    list-style: none;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 1em; }
+  .nav-char-img {
+    max-width: 100px;
+    max-height: 70px; }
 
 .wrap {
   padding: 1em; }

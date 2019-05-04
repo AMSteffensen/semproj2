@@ -146,9 +146,20 @@
       <p>Player Two</p>
     </div>
 
-
+    <p id="hdr">0</p>
+    <button onclick="countClicks();">Click!</button>
 
     <script>
+      function countClicks() {
+        var number = document.getElementById = "hdr";
+        var counter;
+        counter++;
+        number.innerHTML = counter;
+        //counter++;
+        //return counter++;
+        console.log(number);
+      }
+
       function rollDice() {
 
         //throw dice no number greater than 6
