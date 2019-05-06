@@ -3,7 +3,10 @@ var playerTwo = document.getElementById("playerTwo");
 var dice = document.getElementById("dice");
 dice.addEventListener("click", rollDice);
 
-//dice.addEventListener("click", moveToken);
+//get player selections
+var playerOneSelection = localStorage.getItem('playerOne');
+var playerTwoSelection = localStorage.getItem('playerTwo');
+
 
 //roll dice
 function rollDice() {
@@ -12,32 +15,6 @@ function rollDice() {
     var rollDice = Math.ceil(Math.random() * max);
     console.log(rollDice);
     return rollDice;
-}
-
-x = 0;
-y = 0;
-//turn order active state
-if (x == "playerOne") rollDice();
-else if (x == "playerTwo") moveToken();
-else if (x == "value3") newTurn();
-//else defaultAction();
-
-
-for (var i = 0; i <= 30; i++) {
-    var playerOne = 0;
-    var playerTwo = 0;
-
-
-}
-
-var activePlayer;
-switch (activePlayer) {
-    case "playerOne":
-        console.log("Player one's turn");
-        break;
-    case "playerTwo":
-        console.log("Player two's turn");
-        break;
 }
 
 /*
@@ -54,8 +31,60 @@ dice.addEventListener('click', function (e) {
     return numberOfClicks;
 });
 
+/*
+    add function to return active player
+*/
+
+function activePlayer() {
+    var activePlayer;
+
+    if (numberOfClicks % 2 == 0) {
+        activePlayer = 'playerOne';
+    }
+    if (numberOfClicks % 2 !== 0) {
+        activePlayer = 'playerTwo';
+    }
+
+    return activePlayer;
+}
 
 
+
+function moveToken() {
+
+    var currentPos = 5;
+    var id = currentPos;
+    var tile = "tile" + id;
+    var moveTiles = rollDice();
+    var newPos = id + moveTiles;
+
+    if (newPos >= 30) {
+        gameOver();
+    }
+
+
+    //if player throw 6, throw again
+    if (moveTiles == 6) {
+        moveToken();
+    }
+
+    /*
+    if it is player ones turn, move blue token number of tiles
+    if it is player twos turn, move red token number of tiles
+    */
+    if (activePlayer() == "playerOne") moveBlue();
+    else if (activePlayer() == "playerTwo") moveRed();
+
+
+    function moveBlue() {
+        document.getElementById(tile).appendChild(document.getElementById("playerOne"));
+    }
+
+    function moveRed() {
+        document.getElementById(tile).appendChild(document.getElementById("playerTwo"));
+    }
+
+}
 
 
 
@@ -106,101 +135,53 @@ for (var i = 0; i < boardTiles.length; i++) {
 }
 
 
-function movePlayer() {
-    var id = currentPos();
-    var tile = "tile" + id;
-    var moveTiles = rollDice();
-    var newPos = id + moveTiles;
 
-    if (newPos >= 30) {
-        gameOver();
-    }
-
-
-    //if player throw 6, throw again
-    if (moveTiles == 6) {
-        movePlayer();
-    }
-    document.getElementById(tile).appendChild(document.getElementById("playerOne"));
-
-}
 
 //check current position for player
 function currentPos() {
-    var currentPos = 5;
+    // get active player
 
-    return currentPos;
+    return ap;
 }
-
-
-//determinate which players turn it is
-
-
-//move token
-function movePlayerOne() {
-    //do move token based on the result of roll dice
-    movePlayer();
-}
-
-function movePlayerTwo() {
-    //do move token based on the result of roll dice
-    movePlayer();
-}
-
-
-
-
-
 
 function gameOver() {
     alert("Game over");
 }
 
-function printNumbers() {
-    for (var i = 0; i <= 100; i++) {
-        //if divisible by 3
-        if (i % 3 == 0) {
-            console.log(i + " fizz");
-            //if divisible by 5 
-        }
-        if (i % 5 == 0) {
-            console.log(i + " buzz");
-        }
-        if (i % 3 == 0 && i % 5 == 0) {
-            console.log(i + " fizzbuzz");
-        } else {
-            console.log(i);
-        }
-    }
-}
-printNumbers();
 
 
 
-var row = 8;
-var column = 8;
+var ap = activePlayer();
 
-for (var i = 0; i <= 8; i++) {
-    var current = 0;
+//set active player 
+var playerPos = document.getElementById(ap);
+console.log(playerPos);
 
-    if (current % 2) {
-        console.log("#")
-    }
-    if (current % 2 == 0) {
-        console.log(" ");
-    } else {
-        console.log("\n");
-    }
-    current++;
-}
+var tile = playerPos.parentElement;
+var tileId = tile.id;
 
-//change active players turn
-function newTurn() {
-    //set active player state
-    //style active player indicator    
+
+switch (ap) {
+    case "playerOne":
+        console.log("Player one is at position: " + tile);
+        break;
+    case "playerTwo":
+        console.log("Player two is at position: " + tile);
+        break;
 }
 
 
-function moveToken() {
+
+function drawCharacters() {
+    var characters = document.getElementById(characters);
+
+    let displayCharacter =
+        '<img src="assets/images/' + playerOneSelection + '.svg">' +
+        '<h3>' + playerOneSelection + '<h3>' +
+        '<img src="assets/images/' + playerTwoSelection + '.svg">' +
+        '<h3>' + playerTwoSelection + '<h3>';
+    document.getElementById('characters').innerHTML = displayCharacter;
 
 }
+
+drawCharacters();

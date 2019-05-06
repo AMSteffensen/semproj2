@@ -24,24 +24,21 @@ var columns = document.querySelectorAll('.nav-char-column');
 var numberOfClicks = 0;
 var selectedCharacter = '';
 
-//set local stoarge
-var characterSelections = window.localStorage;
-//clear local storage
-characterSelections.clear();
+var selectedArray = [];
 
 var characterArray = [{
     name: "Sandor Clegane",
     id: 955,
     imgSrc: "Sandor Clegane.svg"
 }, {
-    name: "Jaime",
+    name: "Jamie",
     id: 955,
-    imgSrc: "Sandor Clegane.svg"
+    imgSrc: "jamie.svg"
 
 }, {
     name: "Sam",
     id: 955,
-    imgSrc: "Sandor Clegane.svg"
+    imgSrc: "sam.svg"
 }, {
     name: "Tyrion",
     id: 955,
@@ -49,7 +46,7 @@ var characterArray = [{
 }, {
     name: "Bran",
     id: 955,
-    imgSrc: "Sandor Clegane.svg"
+    imgSrc: "bran.svg"
 }, {
     name: "Dude",
     id: 955,
@@ -57,33 +54,32 @@ var characterArray = [{
 }, {
     name: "Khal Drogo",
     id: 955,
-    imgSrc: "Sandor Clegane.svg"
+    imgSrc: "khaldrogo.svg"
 }, {
     name: "Lady Red",
     id: 955,
-    imgSrc: "Sandor Clegane.svg"
+    imgSrc: "ladyred.svg"
 }, {
     name: "Walker",
     id: 955,
-    imgSrc: "Sandor Clegane.svg"
+    imgSrc: "walker.svg"
 }, {
     name: "Arya",
     id: 955,
-    imgSrc: "Sandor Clegane.svg"
+    imgSrc: "arya.svg"
 }];
 
-var selectedArray = [];
 
 hound.addEventListener('click', function (event) {
 
     //state character name
-    var character = 'Sandor';
+    var character = characterArray[0].name;
 
     //check number of selections
     checkSelections(character);
 
     //add playerselection to array
-    selectedArray.push("Sandor");
+    selectedArray.push(character);
 
     //disable li element for further selection
     hound.parentNode.disabled = true;
@@ -97,11 +93,12 @@ hound.addEventListener('click', function (event) {
 
 jamie.addEventListener('click', function (event) {
     //state character name
-    var character = 'Jaime';
+    var character = characterArray[1].name;
     //check number of selections
     checkSelections(character);
 
-    selectedArray.push("Jaime");
+    selectedArray.push(character);
+
     //disable li element for further selection
     jamie.parentElement.disabled = true;
     //check if ready
@@ -110,13 +107,13 @@ jamie.addEventListener('click', function (event) {
 
 sam.addEventListener('click', function (event) {
     //state character name
-    var character = 'Sam';
+    var character = characterArray[2].name;
 
     //check number of selections
     checkSelections(character);
 
     //add playerselection to array
-    selectedArray.push("Sam");
+    selectedArray.push(character);
 
     //disable li element for further selection
     sam.parentElement.disabled = true;
@@ -127,13 +124,13 @@ sam.addEventListener('click', function (event) {
 
 tyrion.addEventListener('click', function (event) {
     //state character name
-    var character = 'Tyrion';
+    var character = characterArray[3].name;
 
     //check number of selections
     checkSelections(character);
 
     //add playerselection to array
-    selectedArray.push("Tyrion");
+    selectedArray.push(character);
 
 
     //disable li element for further selection
@@ -145,13 +142,13 @@ tyrion.addEventListener('click', function (event) {
 
 bran.addEventListener('click', function (event) {
     //state character name
-    var character = 'Bran';
+    var character = characterArray[4].name;
 
     //check number of selections
     checkSelections(character);
 
     //add playerselection to array
-    selectedArray.push("Bran");
+    selectedArray.push(character);
 
     //disable li element for further selection
     bran.parentElement.disabled = true;
@@ -162,13 +159,13 @@ bran.addEventListener('click', function (event) {
 
 dude.addEventListener('click', function (event) {
     //state character name
-    var character = 'The Dude';
+    var character = characterArray[5].name;
 
     //check number of selections
     checkSelections(character);
 
     //add playerselection to array
-    selectedArray.push("The Dude");
+    selectedArray.push(character);
 
     //disable li element for further selection
     dude.parentElement.disabled = true;
@@ -179,13 +176,13 @@ dude.addEventListener('click', function (event) {
 
 khaldrogo.addEventListener('click', function (event) {
     //state character name
-    var character = 'Khal Drogo';
+    var character = characterArray[6].name;
 
     //check number of selections
     checkSelections(character);
 
     //add playerselection to array
-    selectedArray.push("Khal Drogo");
+    selectedArray.push(character);
 
     //disable li element for further selection
     khaldrogo.parentElement.disabled = true;
@@ -196,13 +193,13 @@ khaldrogo.addEventListener('click', function (event) {
 
 ladyred.addEventListener('click', function (event) {
     //state character name
-    var character = 'Lady Red';
+    var character = characterArray[7].name;
 
     //check number of selections
     checkSelections(character);
 
     //add playerselection to array
-    selectedArray.push("Lady Red");
+    selectedArray.push(character);
 
     //disable li element for further selection
     ladyred.parentElement.disabled = true;
@@ -213,13 +210,13 @@ ladyred.addEventListener('click', function (event) {
 
 walker.addEventListener('click', function (event) {
     //state character name
-    var character = 'Walker';
+    var character = characterArray[8].name;
 
     //check number of selections
     checkSelections(character);
 
     //add playerselection to array
-    selectedArray.push("Walker");
+    selectedArray.push(character);
 
     //disable li element for further selection
     walker.parentElement.disabled = true;
@@ -230,13 +227,13 @@ walker.addEventListener('click', function (event) {
 
 arya.addEventListener('click', function (event) {
     //state character name
-    var character = 'Arya';
+    var character = characterArray[9].name;
 
     //check number of selections
     checkSelections(character);
 
     //add playerselection to array
-    selectedArray.push("Arya");
+    selectedArray.push(character);
 
     //disable li element for further selection
     arya.parentElement.disabled = true;
@@ -259,19 +256,20 @@ function isReady() {
         columns.disabled = true;
         //enable start game button
         alert("ready");
+        storePlayers();
     }
 }
 
 function checkSelections(character) {
+
     // check selected arry for number of selections
     if (selectedArray.length == 0) {
         alert('Player 1 selected:' + character);
         //add selected character to local storage
-        localStorage.setItem("Player 1", +character);
+
     } else if (selectedArray.length == 1) {
         alert('Pleayer 2 selected' + character);
         //add selected character
-        localStorage.setItem("Player 2", +character);
     }
 }
 
@@ -297,6 +295,16 @@ function populateData(result, id) {
         '<p> culture:' + result.culture + '</p>' +
         '<p> Aliases:' + result.aliases + '</p>';
     document.getElementById('character').innerHTML = displayCharacter;
+}
+
+function storePlayers() {
+    localStorage.clear();
+
+    var playerOne = selectedArray[0].toString();
+    var playerTwo = selectedArray[1].toString();
+
+    localStorage.setItem("playerOne", playerOne);
+    localStorage.setItem("playerTwo", playerTwo);
 }
 
 
