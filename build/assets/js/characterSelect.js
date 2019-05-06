@@ -21,29 +21,58 @@ const walker = document.getElementById('walker');
 const arya = document.getElementById('arya');
 var columns = document.querySelectorAll('.nav-char-column');
 
-
 var numberOfClicks = 0;
 var selectedCharacter = '';
 
-var characterArray = ['Hound', 'Jaime', 'Sam', 'Tyrion', 'Bran', 'Dude', 'Khaldrogo', 'Ladyred', 'Walker', 'Arya'];
+//set local stoarge
+var characterSelections = window.localStorage;
+//clear local storage
+characterSelections.clear();
+
+var characterArray = [{
+    name: "Sandor Clegane",
+    id: 955,
+    imgSrc: "Sandor Clegane.svg"
+}, {
+    name: "Jaime",
+    id: 955,
+    imgSrc: "Sandor Clegane.svg"
+
+}, {
+    name: "Sam",
+    id: 955,
+    imgSrc: "Sandor Clegane.svg"
+}, {
+    name: "Tyrion",
+    id: 955,
+    imgSrc: "Tyrion.svg"
+}, {
+    name: "Bran",
+    id: 955,
+    imgSrc: "Sandor Clegane.svg"
+}, {
+    name: "Dude",
+    id: 955,
+    imgSrc: "Sandor Clegane.svg"
+}, {
+    name: "Khal Drogo",
+    id: 955,
+    imgSrc: "Sandor Clegane.svg"
+}, {
+    name: "Lady Red",
+    id: 955,
+    imgSrc: "Sandor Clegane.svg"
+}, {
+    name: "Walker",
+    id: 955,
+    imgSrc: "Sandor Clegane.svg"
+}, {
+    name: "Arya",
+    id: 955,
+    imgSrc: "Sandor Clegane.svg"
+}];
 
 var selectedArray = [];
-
-
-//make self invoked function to count selections
-// (function () {
-//     //check if target has been selected
-
-
-//     // if (hound.matches(".selected") == true) {
-//     //     console.log("player one selected");
-//     // }
-
-//     for (var i = 0; i <= selectedArray.length; i++) {
-//         console.log(selectedArray.length);
-//     }
-// }());
-
 
 hound.addEventListener('click', function (event) {
 
@@ -267,8 +296,21 @@ function populateData(result, id) {
         '<p> Gender:' + result.gender + '</p>' +
         '<p> culture:' + result.culture + '</p>' +
         '<p> Aliases:' + result.aliases + '</p>';
-
-
-
     document.getElementById('character').innerHTML = displayCharacter;
 }
+
+
+
+//make self invoked function to count selections
+// (function () {
+//     //check if target has been selected
+
+
+//     // if (hound.matches(".selected") == true) {
+//     //     console.log("player one selected");
+//     // }
+
+//     for (var i = 0; i <= selectedArray.length; i++) {
+//         console.log(selectedArray.length);
+//     }
+// }());
