@@ -48,12 +48,11 @@ function activePlayer() {
     return activePlayer;
 }
 
-
-
 function moveToken() {
 
-    var currentPos = 5;
-    var id = currentPos;
+    // var ap = activePlayer();
+    // var currentPos = document.getElementById(ap);
+    var id = currentPos();
     var tile = "tile" + id;
     var moveTiles = rollDice();
     var newPos = id + moveTiles;
@@ -77,13 +76,40 @@ function moveToken() {
 
 
     function moveBlue() {
+        console.log("Moving blue player");
         document.getElementById(tile).appendChild(document.getElementById("playerOne"));
     }
 
     function moveRed() {
+        console.log("Moving red player");
         document.getElementById(tile).appendChild(document.getElementById("playerTwo"));
     }
 
+
+
+
+}
+
+function currentPos() {
+    var ap = activePlayer();
+
+    //set active player 
+    var playerPos = document.getElementById(ap);
+    // console.log(playerPos);
+
+    var tile = playerPos.parentElement;
+    var tileId = tile.id;
+
+
+    switch (ap) {
+        case "playerOne":
+            console.log("Player one is at position: " + tileId);
+            break;
+        case "playerTwo":
+            console.log("Player two is at position: " + tileId);
+            break;
+    }
+    return tileId;
 }
 
 
@@ -137,12 +163,7 @@ for (var i = 0; i < boardTiles.length; i++) {
 
 
 
-//check current position for player
-function currentPos() {
-    // get active player
 
-    return ap;
-}
 
 function gameOver() {
     alert("Game over");
@@ -150,25 +171,6 @@ function gameOver() {
 
 
 
-
-var ap = activePlayer();
-
-//set active player 
-var playerPos = document.getElementById(ap);
-console.log(playerPos);
-
-var tile = playerPos.parentElement;
-var tileId = tile.id;
-
-
-switch (ap) {
-    case "playerOne":
-        console.log("Player one is at position: " + tile);
-        break;
-    case "playerTwo":
-        console.log("Player two is at position: " + tile);
-        break;
-}
 
 
 
@@ -183,5 +185,4 @@ function drawCharacters() {
     document.getElementById('characters').innerHTML = displayCharacter;
 
 }
-
 drawCharacters();
