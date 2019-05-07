@@ -13,7 +13,7 @@ function rollDice() {
     //throw dice no number greater than 6
     const max = 6;
     var rollDice = Math.ceil(Math.random() * max);
-    console.log(rollDice);
+    //console.log(rollDice);
     return rollDice;
 }
 
@@ -50,12 +50,11 @@ function activePlayer() {
 
 function moveToken() {
 
-    // var ap = activePlayer();
-    // var currentPos = document.getElementById(ap);
+    //var ap = activePlayer();
     var id = currentPos();
-    var tile = "tile" + id;
     var moveTiles = rollDice();
     var newPos = id + moveTiles;
+
 
     if (newPos >= 30) {
         gameOver();
@@ -71,24 +70,24 @@ function moveToken() {
     if it is player ones turn, move blue token number of tiles
     if it is player twos turn, move red token number of tiles
     */
-    if (activePlayer() == "playerOne") moveBlue();
-    else if (activePlayer() == "playerTwo") moveRed();
-
-
-    function moveBlue() {
-        console.log("Moving blue player");
-        document.getElementById(tile).appendChild(document.getElementById("playerOne"));
+    if (activePlayer() == "playerOne") {
+        console.log("Player one rolled: " + moveTiles);
+        console.log("new position: " + newPos);
+        console.log("Moving player one");
+        document.getElementById("tile" + newPos).appendChild(document.getElementById("playerOne"));
+        console.log("Player two's turn");
+    } else if (activePlayer() == "playerTwo") {
+        console.log("Player two rolled: " + moveTiles);
+        console.log("new position: " + newPos);
+        console.log("Moving player two");
+        document.getElementById("tile" + newPos).appendChild(document.getElementById("playerTwo"));
+        console.log("Player one's turn");
     }
-
-    function moveRed() {
-        console.log("Moving red player");
-        document.getElementById(tile).appendChild(document.getElementById("playerTwo"));
-    }
-
-
-
 
 }
+
+
+
 
 function currentPos() {
     var ap = activePlayer();
@@ -99,17 +98,18 @@ function currentPos() {
 
     var tile = playerPos.parentElement;
     var tileId = tile.id;
+    var id = parseInt(tileId.substr(4));
 
 
     switch (ap) {
         case "playerOne":
-            console.log("Player one is at position: " + tileId);
+            console.log("Player one is at position: " + id);
             break;
         case "playerTwo":
-            console.log("Player two is at position: " + tileId);
+            console.log("Player two is at position: " + id);
             break;
     }
-    return tileId;
+    return id;
 }
 
 
