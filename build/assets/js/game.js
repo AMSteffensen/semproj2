@@ -69,65 +69,69 @@ function newTurn() {
     var moveTiles = rollDice();
     var newPos = id + moveTiles;
     var ap = activePlayer();
+    var moveBack = id - moveTiles;
 
-    //check if player hits trap
-    switch (newPos) {
-        case 5:
-            alert(ap + " hit trap at tile 5");
-            moveToken(ap, 1);
-            break;
-        case 10:
-            alert(ap + " hit trap at tile 10");
-            moveToken(ap, 1);
-            break;
-        case 15:
-            alert(ap + " hit trap at tile 15");
-            moveToken(ap, 1);
-            break;
-        case 20:
-            alert(ap + " hit trap at tile 20");
-            moveToken(ap, 1);
-            break;
-        case 25:
-            alert(ap + " hit trap at tile 25");
-            moveToken(ap, 1);
-            break;
+    if (newPos) {
+        //check if player hits trap
+        switch (newPos) {
+            case 5:
+                alert(ap + " hit trap at tile 5");
+                moveToken(ap, 1);
+                break;
+            case 10:
+                alert(ap + " hit trap at tile 10" + " moving back to tile " + moveBack);
+                moveTokenBack(ap, moveBack);
+                break;
+            case 15:
+                alert(ap + " hit trap at tile 15" + " moving back to tile " + moveBack);
+                moveTokenBack(ap, moveBack);
+                break;
+            case 20:
+                alert(ap + " hit trap at tile 20" + " moving back to tile " + moveBack);
+                moveTokenBack(ap, moveBack);
+                break;
+            case 25:
+                alert(ap + " hit trap at tile 25" + " moving back to tile " + moveBack);
+                moveTokenBack(ap, moveBack);
+                break;
+
+            default:
+                console.log(ap + " rolled " + moveTiles);
+
+                if (newPos >= 30) {
+                    gameOver();
+                } //if player throw 6, throw again
+                else if (moveTiles == 6) {
+                    //if player throw 6, throw again
+                    alert(ap + " rolled 6, new turn!");
+                    moveToken(ap, newPos);
+                    console.log(ap + " rolled " + moveTiles);
+                } else {
+                    moveToken(ap, newPos);
+                }
+
+        }
+
     }
 
-    if (newPos >= 30) {
-        gameOver();
-    }
+}
 
-    //if player throw 6, throw again
-    if (moveTiles == 6) {
-        newTurn();
-    }
-
-    /*
+/*
+    move active player to new position
     if it is player ones turn, move blue token number of tiles
     if it is player twos turn, move red token number of tiles
     */
-    else if (ap == "playerOne") {
-        console.log("Player one rolled: " + moveTiles);
-        console.log("new position: " + newPos);
-        console.log("Moving player one");
-        moveToken(ap, newPos);
-        console.log("Player two's turn");
-    } else if (ap == "playerTwo") {
-        console.log("Player two rolled: " + moveTiles);
-        console.log("new position: " + newPos);
-        console.log("Moving player two");
-        moveToken(ap, newPos);
-        console.log("Player one's turn");
-    }
-}
-
-/* 
-    move active player to new position
-*/
 function moveToken(ap, newPos) {
     document.getElementById("tile" + newPos).appendChild(document.getElementById(ap));
 }
+
+/*
+    move active player back number of steps
+    */
+function moveTokenBack(ap, moveBack) {
+    document.getElementById("tile" + moveBack).appendChild(document.getElementById(ap));
+}
+
 
 
 /*
