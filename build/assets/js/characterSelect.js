@@ -31,41 +31,41 @@ var characterArray = [{
     id: 955,
     imgSrc: "Sandor Clegane.svg"
 }, {
-    name: "Jamie",
-    id: 955,
+    name: "Jaime Lannister",
+    id: 529,
     imgSrc: "jamie.svg"
 
 }, {
-    name: "Sam",
-    id: 955,
+    name: "Samwell Tarly",
+    id: 954,
     imgSrc: "sam.svg"
 }, {
-    name: "Tyrion",
-    id: 955,
+    name: "Tyrion Lannister",
+    id: 1052,
     imgSrc: "Tyrion.svg"
 }, {
-    name: "Bran",
-    id: 955,
+    name: "Brandon Stark",
+    id: 206,
     imgSrc: "bran.svg"
 }, {
-    name: "Dude",
-    id: 955,
-    imgSrc: "Sandor Clegane.svg"
+    name: "Bron",
+    id: 217,
+    imgSrc: "bron.svg"
 }, {
-    name: "khaldrogo",
-    id: 955,
+    name: "Khal Drogo",
+    id: 1278,
     imgSrc: "khaldrogo.svg"
 }, {
-    name: "Lady Red",
-    id: 955,
+    name: "Melisandre",
+    id: 743,
     imgSrc: "ladyred.svg"
 }, {
-    name: "Walker",
-    id: 955,
+    name: "White Walker",
+    id: 2057,
     imgSrc: "walker.svg"
 }, {
-    name: "Arya",
-    id: 955,
+    name: "Arya Stark",
+    id: 148,
     imgSrc: "arya.svg"
 }];
 
@@ -243,10 +243,6 @@ arya.addEventListener('click', function (event) {
     //check if game is ready to run
     isReady();
 });
-
-function showAlert(event) {
-    alert("click detected");
-}
 
 function isReady() {
     if (selectedArray.length > 2) {

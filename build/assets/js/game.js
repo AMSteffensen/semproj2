@@ -1,26 +1,32 @@
+/*
+TODO: 
+Determinate winner
+Send to game over screen
+
+Clean up code
+Refactor code
+Polish
+*/
+
 var playerOne = document.getElementById("playerOne");
 var playerTwo = document.getElementById("playerTwo");
 var dice = document.getElementById("dice");
 dice.addEventListener("click", rollDice);
+dice.addEventListener("click", moveToken);
 
-//get player selections
+//get player selections stored from previous screen
 var playerOneSelection = localStorage.getItem('playerOne');
 var playerTwoSelection = localStorage.getItem('playerTwo');
 
-
-//roll dice
 function rollDice() {
     //throw dice no number greater than 6
     const max = 6;
     var rollDice = Math.ceil(Math.random() * max);
-    //console.log(rollDice);
     return rollDice;
 }
 
 /*
-add counter to count how many clicks on roll
-for each click that is odd, it is players two's turn
-for each even click it is player ones turn
+    add counter to count how many clicks on roll
 */
 
 var numberOfClicks = 0;
@@ -33,6 +39,8 @@ dice.addEventListener('click', function (e) {
 
 /*
     add function to return active player
+     for each click that is odd, it is players two 's turn
+     for each even click it is player ones turn
 */
 
 function activePlayer() {
@@ -50,7 +58,13 @@ function activePlayer() {
 
 function moveToken() {
 
-    //var ap = activePlayer();
+    /*
+        Get current postion of token
+        Roll dice, calculate new position
+        If new position is larger than winning postion, end game.
+        If Player rolls 6, give new turn
+    */
+
     var id = currentPos();
     var moveTiles = rollDice();
     var newPos = id + moveTiles;
@@ -59,7 +73,6 @@ function moveToken() {
     if (newPos >= 30) {
         gameOver();
     }
-
 
     //if player throw 6, throw again
     if (moveTiles == 6) {
@@ -87,91 +100,70 @@ function moveToken() {
 }
 
 
-
+/*
+    Get active player
+    Store active players position
+    Return the ID number of the current active players tile
+*/
 
 function currentPos() {
     var ap = activePlayer();
-
-    //set active player 
     var playerPos = document.getElementById(ap);
-    // console.log(playerPos);
 
     var tile = playerPos.parentElement;
     var tileId = tile.id;
+    //Convert string to INT
     var id = parseInt(tileId.substr(4));
 
-
+    //check if active player is at trap postition
     switch (ap) {
         case "playerOne":
             console.log("Player one is at position: " + id);
+            isTrap(ap);
             break;
         case "playerTwo":
             console.log("Player two is at position: " + id);
+            isTrap(ap);
             break;
+    }
+
+    /*
+        add traps to tile board
+        if active player hits a trap, play effect
+    */
+    function isTrap(ap) {
+        switch (id) {
+            case 5:
+                alert(ap + " Hit a trap");
+                break;
+            case 10:
+                alert(ap + " Hit a trap");
+                break;
+            case 15:
+                alert(ap + " Hit a trap");
+                break;
+            case 20:
+                alert(ap + " Hit a trap");
+                break;
+            case 25:
+                alert(ap + " Hit a trap");
+                break;
+        }
     }
     return id;
 }
 
-
-
-/* 
-Ittarate through trap array, for each number console.log event
+/*
+    determinate winner
+    show game over screen
 */
 
-var boardTiles = 0;
-for (var i = 0; i < boardTiles.length; i++) {
-    switch (i) {
-        case 0:
-            console.log("Start tile");
-            break;
-        case 1:
-            console.log("Normal tile");
-            break;
-        case 2:
-            console.log("Normal tile");
-            break;
-        case 3:
-            console.log("Normal tile");
-            break;
-        case 4:
-            console.log("Normal tile");
-            break;
-        case 5:
-            console.log("Hit an Ice Trap, move back two tiles.");
-            break;
-        case 6:
-            console.log("Normal tile");
-            break;
-        case 7:
-            console.log("Hit an Fire trap, stay for one turn.");
-            break;
-        case 8:
-            console.log("Normal tile");
-            break;
-        case 9:
-            console.log("Normal tile");
-            break;
-        case 10:
-            console.log("Normal tile");
-            break;
-        case 11:
-            console.log("Normal tile");
-            break;
-    }
-}
-
-
-
-
-
-
 function gameOver() {
-    alert("Game over");
+    var winner = activePlayer();
+    localStorage.setItem("Winner", winner);
+    alert(winner + " Won the game!");
+    scoreScreen();
 }
-
-
-
-
 
 
 function drawCharacters() {
