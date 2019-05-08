@@ -1,5 +1,6 @@
 /* 
     Draw winner hero to screen
+    Animate hero
 */
 
 window.onload = function () {

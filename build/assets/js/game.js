@@ -179,3 +179,8 @@ function drawCharacters() {
 
 }
 drawCharacters();
+
+
+function styleTraps() {
+    
+}

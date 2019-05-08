@@ -51,15 +51,15 @@ var characterArray = [{
 }, {
     name: "Bron",
     id: 217,
-    imgSrc: "bron.svg"
+    imgSrc: "bronn.svg"
 }, {
     name: "Khal Drogo",
     id: 1278,
-    imgSrc: "khaldrogo.svg"
+    imgSrc: "Cohollo.svg"
 }, {
     name: "Melisandre",
     id: 743,
-    imgSrc: "ladyred.svg"
+    imgSrc: "Melisandre.svg"
 }, {
     name: "White Walker",
     id: 2057,
@@ -296,8 +296,8 @@ function getData(API_URL, id) {
 
 function populateData(result, id) {
     let displayCharacter =
-        '<img src="assets/images/' + result.name + '.svg">' +
-        '<h3>' + result.name + '<h3>' +
+        '<img class="character__image" src="assets/images/' + result.name + '.svg">' +
+        '<h3>' + result.name + '</h3>' +
         '<p> Born:' + result.born + '</p>' +
         '<p> Gender:' + result.gender + '</p>' +
         '<p> culture:' + result.culture + '</p>' +
