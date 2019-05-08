@@ -12,7 +12,7 @@ var playerOne = document.getElementById("playerOne");
 var playerTwo = document.getElementById("playerTwo");
 var dice = document.getElementById("dice");
 dice.addEventListener("click", rollDice);
-dice.addEventListener("click", moveToken);
+dice.addEventListener("click", newTurn);
 
 //get player selections stored from previous screen
 var playerOneSelection = localStorage.getItem('playerOne');
@@ -56,7 +56,7 @@ function activePlayer() {
     return activePlayer;
 }
 
-function moveToken() {
+function newTurn() {
 
     /*
         Get current postion of token
@@ -68,7 +68,31 @@ function moveToken() {
     var id = currentPos();
     var moveTiles = rollDice();
     var newPos = id + moveTiles;
+    var ap = activePlayer();
 
+    //check if player hits trap
+    switch (newPos) {
+        case 5:
+            alert(ap + " hit trap at tile 5");
+            moveToken(ap, 1);
+            break;
+        case 10:
+            alert(ap + " hit trap at tile 10");
+            moveToken(ap, 1);
+            break;
+        case 15:
+            alert(ap + " hit trap at tile 15");
+            moveToken(ap, 1);
+            break;
+        case 20:
+            alert(ap + " hit trap at tile 20");
+            moveToken(ap, 1);
+            break;
+        case 25:
+            alert(ap + " hit trap at tile 25");
+            moveToken(ap, 1);
+            break;
+    }
 
     if (newPos >= 30) {
         gameOver();
@@ -76,27 +100,33 @@ function moveToken() {
 
     //if player throw 6, throw again
     if (moveTiles == 6) {
-        moveToken();
+        newTurn();
     }
 
     /*
     if it is player ones turn, move blue token number of tiles
     if it is player twos turn, move red token number of tiles
     */
-    if (activePlayer() == "playerOne") {
+    else if (ap == "playerOne") {
         console.log("Player one rolled: " + moveTiles);
         console.log("new position: " + newPos);
         console.log("Moving player one");
-        document.getElementById("tile" + newPos).appendChild(document.getElementById("playerOne"));
+        moveToken(ap, newPos);
         console.log("Player two's turn");
-    } else if (activePlayer() == "playerTwo") {
+    } else if (ap == "playerTwo") {
         console.log("Player two rolled: " + moveTiles);
         console.log("new position: " + newPos);
         console.log("Moving player two");
-        document.getElementById("tile" + newPos).appendChild(document.getElementById("playerTwo"));
+        moveToken(ap, newPos);
         console.log("Player one's turn");
     }
+}
 
+/* 
+    move active player to new position
+*/
+function moveToken(ap, newPos) {
+    document.getElementById("tile" + newPos).appendChild(document.getElementById(ap));
 }
 
 
@@ -119,36 +149,12 @@ function currentPos() {
     switch (ap) {
         case "playerOne":
             console.log("Player one is at position: " + id);
-            isTrap(ap);
+            //isTrap(ap);
             break;
         case "playerTwo":
             console.log("Player two is at position: " + id);
-            isTrap(ap);
+            //isTrap(ap);
             break;
-    }
-
-    /*
-        add traps to tile board
-        if active player hits a trap, play effect
-    */
-    function isTrap(ap) {
-        switch (id) {
-            case 5:
-                alert(ap + " Hit a trap");
-                break;
-            case 10:
-                alert(ap + " Hit a trap");
-                break;
-            case 15:
-                alert(ap + " Hit a trap");
-                break;
-            case 20:
-                alert(ap + " Hit a trap");
-                break;
-            case 25:
-                alert(ap + " Hit a trap");
-                break;
-        }
     }
     return id;
 }
