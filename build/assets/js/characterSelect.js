@@ -8,6 +8,7 @@ Clean up code
 Refactor code
 
 */
+const API_URL = 'https://anapioficeandfire.com/api/characters/';
 
 const hound = document.getElementById('hound');
 const jamie = document.getElementById('jamie');
@@ -71,10 +72,9 @@ var characterArray = [{
 
 
 hound.addEventListener('click', function (event) {
-
     //state character name
     var character = characterArray[0].name;
-
+    var id = characterArray[0].id;
     //check number of selections
     checkSelections(character);
 
@@ -85,7 +85,7 @@ hound.addEventListener('click', function (event) {
     hound.parentNode.disabled = true;
 
     //fetch data from api
-    getData('https://anapioficeandfire.com/api/characters/955', character);
+    getData(API_URL, id);
     //check if game is ready to run
     isReady();
 });
@@ -94,6 +94,9 @@ hound.addEventListener('click', function (event) {
 jamie.addEventListener('click', function (event) {
     //state character name
     var character = characterArray[1].name;
+    var id = characterArray[1].id;
+
+    getData(character.id);
     //check number of selections
     checkSelections(character);
 
@@ -101,6 +104,8 @@ jamie.addEventListener('click', function (event) {
 
     //disable li element for further selection
     jamie.parentElement.disabled = true;
+
+    getData(API_URL, id);
     //check if ready
     isReady();
 });
@@ -108,7 +113,7 @@ jamie.addEventListener('click', function (event) {
 sam.addEventListener('click', function (event) {
     //state character name
     var character = characterArray[2].name;
-
+    var id = characterArray[2].id;
     //check number of selections
     checkSelections(character);
 
@@ -118,6 +123,7 @@ sam.addEventListener('click', function (event) {
     //disable li element for further selection
     sam.parentElement.disabled = true;
 
+    getData(API_URL, id);
     //check if game is ready to run
     isReady();
 });
@@ -125,7 +131,7 @@ sam.addEventListener('click', function (event) {
 tyrion.addEventListener('click', function (event) {
     //state character name
     var character = characterArray[3].name;
-
+    var id = characterArray[3].id;
     //check number of selections
     checkSelections(character);
 
@@ -136,6 +142,7 @@ tyrion.addEventListener('click', function (event) {
     //disable li element for further selection
     tyrion.parentElement.disabled = true;
 
+    getData(API_URL, id);
     //check if game is ready to run
     isReady();
 });
@@ -143,7 +150,7 @@ tyrion.addEventListener('click', function (event) {
 bran.addEventListener('click', function (event) {
     //state character name
     var character = characterArray[4].name;
-
+    var id = characterArray[4].id;
     //check number of selections
     checkSelections(character);
 
@@ -153,6 +160,7 @@ bran.addEventListener('click', function (event) {
     //disable li element for further selection
     bran.parentElement.disabled = true;
 
+    getData(API_URL, id);
     //check if game is ready to run
     isReady();
 });
@@ -160,7 +168,7 @@ bran.addEventListener('click', function (event) {
 dude.addEventListener('click', function (event) {
     //state character name
     var character = characterArray[5].name;
-
+    var id = characterArray[5].id;
     //check number of selections
     checkSelections(character);
 
@@ -170,6 +178,7 @@ dude.addEventListener('click', function (event) {
     //disable li element for further selection
     dude.parentElement.disabled = true;
 
+    getData(API_URL, id);
     //check if game is ready to run
     isReady();
 });
@@ -177,7 +186,7 @@ dude.addEventListener('click', function (event) {
 khaldrogo.addEventListener('click', function (event) {
     //state character name
     var character = characterArray[6].name;
-
+    var id = characterArray[6].id;
     //check number of selections
     checkSelections(character);
 
@@ -187,6 +196,7 @@ khaldrogo.addEventListener('click', function (event) {
     //disable li element for further selection
     khaldrogo.parentElement.disabled = true;
 
+    getData(API_URL, id);
     //check if game is ready to run
     isReady();
 });
@@ -194,7 +204,7 @@ khaldrogo.addEventListener('click', function (event) {
 ladyred.addEventListener('click', function (event) {
     //state character name
     var character = characterArray[7].name;
-
+    var id = characterArray[7].id;
     //check number of selections
     checkSelections(character);
 
@@ -204,6 +214,7 @@ ladyred.addEventListener('click', function (event) {
     //disable li element for further selection
     ladyred.parentElement.disabled = true;
 
+    getData(API_URL, id);
     //check if game is ready to run
     isReady();
 });
@@ -211,7 +222,7 @@ ladyred.addEventListener('click', function (event) {
 walker.addEventListener('click', function (event) {
     //state character name
     var character = characterArray[8].name;
-
+    var id = characterArray[8].id;
     //check number of selections
     checkSelections(character);
 
@@ -221,6 +232,7 @@ walker.addEventListener('click', function (event) {
     //disable li element for further selection
     walker.parentElement.disabled = true;
 
+    getData(API_URL, id);
     //check if game is ready to run
     isReady();
 });
@@ -228,7 +240,7 @@ walker.addEventListener('click', function (event) {
 arya.addEventListener('click', function (event) {
     //state character name
     var character = characterArray[9].name;
-
+    var id = characterArray[9].id;
     //check number of selections
     checkSelections(character);
 
@@ -239,7 +251,7 @@ arya.addEventListener('click', function (event) {
     arya.parentElement.disabled = true;
 
     //fetch data from api
-    getData('https://anapioficeandfire.com/api/characters/148', character);
+    getData(API_URL, id);
     //check if game is ready to run
     isReady();
 });
@@ -271,8 +283,8 @@ function checkSelections(character) {
 
 
 
-function getData(Url, id) {
-    fetch(Url)
+function getData(API_URL, id) {
+    fetch(API_URL + id)
         .then((response) => {
             return response.json();
         })

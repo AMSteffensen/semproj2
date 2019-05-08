@@ -69,30 +69,30 @@ function newTurn() {
     var moveTiles = rollDice();
     var newPos = id + moveTiles;
     var ap = activePlayer();
-    var moveBack = id - moveTiles;
+    var moveBack = newPos - 3;
 
     if (newPos) {
         //check if player hits trap
         switch (newPos) {
             case 5:
-                alert(ap + " hit trap at tile 5");
+                alert(ap + " hit trap at tile 5" + " moving back to tile 1");
                 moveToken(ap, 1);
                 break;
             case 10:
-                alert(ap + " hit trap at tile 10" + " moving back to tile " + moveBack);
-                moveTokenBack(ap, moveBack);
+                alert(ap + " hit trap at tile 10" + " moving back to tile 5");
+                moveToken(ap, 5);
                 break;
             case 15:
                 alert(ap + " hit trap at tile 15" + " moving back to tile " + moveBack);
-                moveTokenBack(ap, moveBack);
+                moveToken(ap, moveBack);
                 break;
             case 20:
                 alert(ap + " hit trap at tile 20" + " moving back to tile " + moveBack);
-                moveTokenBack(ap, moveBack);
+                moveToken(ap, moveBack);
                 break;
             case 25:
-                alert(ap + " hit trap at tile 25" + " moving back to tile " + moveBack);
-                moveTokenBack(ap, moveBack);
+                alert(ap + " hit trap at tile 25" + " moving back to tile 15");
+                moveToken(ap, 15);
                 break;
 
             default:
@@ -124,15 +124,6 @@ function newTurn() {
 function moveToken(ap, newPos) {
     document.getElementById("tile" + newPos).appendChild(document.getElementById(ap));
 }
-
-/*
-    move active player back number of steps
-    */
-function moveTokenBack(ap, moveBack) {
-    document.getElementById("tile" + moveBack).appendChild(document.getElementById(ap));
-}
-
-
 
 /*
     Get active player
