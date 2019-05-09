@@ -1,8 +1,8 @@
 /*
 TODO: 
 Remove event listner when both players have selected character
-Fix local Storage
-Find character numbers for all characters to fetch from
+Style selected characters
+Show both selected characters
 
 Clean up code
 Refactor code
@@ -49,7 +49,7 @@ var characterArray = [{
     id: 206,
     imgSrc: "bran.svg"
 }, {
-    name: "Bron",
+    name: "Bronn",
     id: 217,
     imgSrc: "bronn.svg"
 }, {
@@ -61,7 +61,7 @@ var characterArray = [{
     id: 743,
     imgSrc: "Melisandre.svg"
 }, {
-    name: "White Walker",
+    name: "urrathon.svg",
     id: 2057,
     imgSrc: "walker.svg"
 }, {
@@ -82,7 +82,7 @@ hound.addEventListener('click', function (event) {
     selectedArray.push(character);
 
     //disable li element for further selection
-    hound.parentNode.disabled = true;
+    hound.classList.add("selected");
 
     //fetch data from api
     getData(API_URL, id);
@@ -103,7 +103,7 @@ jamie.addEventListener('click', function (event) {
     selectedArray.push(character);
 
     //disable li element for further selection
-    jamie.parentElement.disabled = true;
+    jamie.classList.add("selected");
 
     getData(API_URL, id);
     //check if ready
@@ -121,7 +121,7 @@ sam.addEventListener('click', function (event) {
     selectedArray.push(character);
 
     //disable li element for further selection
-    sam.parentElement.disabled = true;
+    sam.classList.add("selected");
 
     getData(API_URL, id);
     //check if game is ready to run
@@ -140,7 +140,7 @@ tyrion.addEventListener('click', function (event) {
 
 
     //disable li element for further selection
-    tyrion.parentElement.disabled = true;
+    tyrion.classList.add("selected");
 
     getData(API_URL, id);
     //check if game is ready to run
@@ -158,7 +158,7 @@ bran.addEventListener('click', function (event) {
     selectedArray.push(character);
 
     //disable li element for further selection
-    bran.parentElement.disabled = true;
+    bran.classList.add("selected");
 
     getData(API_URL, id);
     //check if game is ready to run
@@ -176,7 +176,7 @@ dude.addEventListener('click', function (event) {
     selectedArray.push(character);
 
     //disable li element for further selection
-    dude.parentElement.disabled = true;
+    dude.classList.add("selected");
 
     getData(API_URL, id);
     //check if game is ready to run
@@ -194,7 +194,7 @@ khaldrogo.addEventListener('click', function (event) {
     selectedArray.push(character);
 
     //disable li element for further selection
-    khaldrogo.parentElement.disabled = true;
+    khaldrogo.classList.add("selected");
 
     getData(API_URL, id);
     //check if game is ready to run
@@ -212,7 +212,7 @@ ladyred.addEventListener('click', function (event) {
     selectedArray.push(character);
 
     //disable li element for further selection
-    ladyred.parentElement.disabled = true;
+    ladyred.classList.add("selected");
 
     getData(API_URL, id);
     //check if game is ready to run
@@ -230,7 +230,7 @@ walker.addEventListener('click', function (event) {
     selectedArray.push(character);
 
     //disable li element for further selection
-    walker.parentElement.disabled = true;
+    walker.classList.add("selected");
 
     getData(API_URL, id);
     //check if game is ready to run
@@ -248,7 +248,7 @@ arya.addEventListener('click', function (event) {
     selectedArray.push(character);
 
     //disable li element for further selection
-    arya.parentElement.disabled = true;
+    arya.classList.add("selected");
 
     //fetch data from api
     getData(API_URL, id);
@@ -260,8 +260,6 @@ function isReady() {
     if (selectedArray.length > 2) {
         console.log('Please select characters');
     } else if (selectedArray.length == 2) {
-        //disable nav selections 
-        columns.disabled = true;
         //enable start game button
         alert("ready");
         storePlayers();
@@ -278,6 +276,8 @@ function checkSelections(character) {
     } else if (selectedArray.length == 1) {
         alert('Pleayer 2 selected' + character);
         //add selected character
+    } else if (selectedArray.length >= 2) {
+        alert('Characters have been selected, please press reset to change characters');
     }
 }
 
@@ -314,7 +314,6 @@ function storePlayers() {
     localStorage.setItem("playerOne", playerOne);
     localStorage.setItem("playerTwo", playerTwo);
 }
-
 
 
 //make self invoked function to count selections

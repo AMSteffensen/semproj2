@@ -1,5 +1,6 @@
 var twoPlayers = false;
 var newGame = document.getElementById("newGame");
+var reset = document.getElementById("reset");
 
 //new game when both players selected character
 newGame.addEventListener("click", function () {
@@ -15,16 +16,10 @@ newGame.addEventListener("click", function () {
     }
 });
 
-//Send players to score screen
-function scoreScreen() {
-    setTimeout(function () {
-        window.location.href = 'gameover.html';
-    }, 1000);
-}
-
-//If player wants to try again, send back to character select screen
-function tryAgain() {
-    setTimeout(function () {
-        window.location.href = 'index.html';
-    }, 1000);
-}
+//new game when both players selected character
+reset.addEventListener("click", function () {
+    selectedArray = [];
+    localStorage.clear();
+    twoPlayers = false;
+    console.log("Selections reset");
+});

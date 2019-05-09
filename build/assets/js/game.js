@@ -181,6 +181,9 @@ function drawCharacters() {
 drawCharacters();
 
 
-function styleTraps() {
-    
+//Send players to score screen
+function scoreScreen() {
+    setTimeout(function () {
+        window.location.href = 'gameover.html';
+    }, 1000);
 }
