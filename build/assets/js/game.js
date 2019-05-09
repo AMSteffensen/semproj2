@@ -13,6 +13,7 @@ var playerTwo = document.getElementById("playerTwo");
 var dice = document.getElementById("dice");
 dice.addEventListener("click", rollDice);
 dice.addEventListener("click", newTurn);
+dice.addEventListener("click", styleCharacters);
 
 //get player selections stored from previous screen
 var playerOneSelection = localStorage.getItem('playerOne');
@@ -168,17 +169,40 @@ function gameOver() {
 
 
 function drawCharacters() {
-    var characters = document.getElementById(characters);
 
     let displayCharacter =
-        '<img src="assets/images/' + playerOneSelection + '.svg">' +
-        '<h3>' + playerOneSelection + '<h3>' +
-        '<img src="assets/images/' + playerTwoSelection + '.svg">' +
-        '<h3>' + playerTwoSelection + '<h3>';
+        '<div>' +
+        '<img id="characterOne" src="assets/images/' + playerOneSelection + '.svg">' +
+        '<h2>' + playerOneSelection + '</h2>' +
+        '</div>' +
+        '<h3> vs</h3>' +
+        '<div>' +
+        '<img id="characterTwo" src="assets/images/' + playerTwoSelection + '.svg">' +
+        '<h2>' + playerTwoSelection + '</h2>' +
+        '</div>';
     document.getElementById('characters').innerHTML = displayCharacter;
 
 }
-drawCharacters();
+
+function styleCharacters() {
+    var playerOne = document.getElementById('characterOne');
+    var playerTwo = document.getElementById('characterTwo');
+
+    if (activePlayer() == 'playerOne') {
+        playerOne.classList.add("active");
+        playerTwo.classList.remove("active");
+    }
+
+    if (activePlayer() == 'playerTwo') {
+        playerTwo.classList.add("active");
+        playerOne.classList.remove("active");
+    }
+}
+
+(function () {
+    drawCharacters();
+    styleCharacters();
+})();
 
 
 //Send players to score screen

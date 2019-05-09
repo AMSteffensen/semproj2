@@ -53,7 +53,7 @@ var characterArray = [{
     id: 217,
     imgSrc: "bronn.svg"
 }, {
-    name: "Khal Drogo",
+    name: "Cohollo",
     id: 1278,
     imgSrc: "Cohollo.svg"
 }, {
@@ -61,7 +61,7 @@ var characterArray = [{
     id: 743,
     imgSrc: "Melisandre.svg"
 }, {
-    name: "urrathon.svg",
+    name: "Urrathon",
     id: 2057,
     imgSrc: "walker.svg"
 }, {
