@@ -4,6 +4,8 @@ Remove event listner when both players have selected character
 Style selected characters
 Show both selected characters
 
+add check, if two characters have been selected.
+
 Clean up code
 Refactor code
 
@@ -24,7 +26,6 @@ var columns = document.querySelectorAll('.nav-char-column');
 
 var numberOfClicks = 0;
 var selectedCharacter = '';
-
 var selectedArray = [];
 
 var characterArray = [{
@@ -281,8 +282,6 @@ function checkSelections(character) {
     }
 }
 
-
-
 function getData(API_URL, id) {
     fetch(API_URL + id)
         .then((response) => {
@@ -295,15 +294,50 @@ function getData(API_URL, id) {
 }
 
 function populateData(result, id) {
-    let displayCharacter =
-        '<img class="character__image" src="assets/images/' + result.name + '.svg">' +
-        '<h3>' + result.name + '</h3>' +
-        '<p> Born:' + result.born + '</p>' +
-        '<p> Gender:' + result.gender + '</p>' +
-        '<p> culture:' + result.culture + '</p>' +
-        '<p> Aliases:' + result.aliases + '</p>';
-    document.getElementById('character').innerHTML = displayCharacter;
+    var character = document.getElementById('character');
+    var characterInfo = document.getElementById('character__info');
+
+    var displayCharacter = document.createElement("img");
+    displayCharacter.setAttribute("id", "character__image");
+    displayCharacter.setAttribute("src", "assets/images/" + result.name + '.svg');
+    displayCharacter.setAttribute("alt", "character image");
+    displayCharacter.classList.add("character__image");
+
+    var description = document.createElement("p");
+    description.setAttribute("id", "description");
+
+
+    var name = document.createTextNode("Name " + result.name + '\n');
+    description.appendChild(name);
+
+    if (result.born == true) {
+        var born = document.createTextNode("Born " + result.born + '\n');
+        description.appendChild(born);
+    }
+
+    var gender = document.createTextNode("Gender " + result.gender + '\n');
+    description.appendChild(gender);
+
+    var culture = document.createTextNode("Culture " + result.culture + '\n');
+    description.appendChild(culture);
+
+    var aliases = document.createTextNode("Aliases " + result.aliases + '\n');
+    description.appendChild(aliases);
+
+    character.appendChild(displayCharacter);
+    character.appendChild(description);
+
+    // let displayCharacter =
+    //     '<img class="character__image" src="assets/images/' + result.name + '.svg">' +
+    //     '<h3>' + result.name + '</h3>' +
+    //     '<p> Born:' + result.born + '</p>' +
+    //     '<p> Gender:' + result.gender + '</p>' +
+    //     '<p> culture:' + result.culture + '</p>' +
+    //     '<p> Aliases:' + result.aliases + '</p>';
+    // document.getElementById('character').innerHTML = displayCharacter;
 }
+
+
 
 function storePlayers() {
     localStorage.clear();
@@ -314,18 +348,3 @@ function storePlayers() {
     localStorage.setItem("playerOne", playerOne);
     localStorage.setItem("playerTwo", playerTwo);
 }
-
-
-//make self invoked function to count selections
-// (function () {
-//     //check if target has been selected
-
-
-//     // if (hound.matches(".selected") == true) {
-//     //     console.log("player one selected");
-//     // }
-
-//     for (var i = 0; i <= selectedArray.length; i++) {
-//         console.log(selectedArray.length);
-//     }
-// }());
