@@ -4,8 +4,7 @@ Remove event listner when both players have selected character
 Style selected characters
 Show both selected characters
 
-add check, if two characters have been selected.
-
+check if the result includes a value, so that characters without values are not populated. 
 Clean up code
 Refactor code
 
@@ -262,23 +261,25 @@ function isReady() {
         console.log('Please select characters');
     } else if (selectedArray.length == 2) {
         //enable start game button
-        alert("ready");
+        console.log("ready");
         storePlayers();
     }
+    return true;
 }
 
 function checkSelections(character) {
 
     // check selected arry for number of selections
     if (selectedArray.length == 0) {
-        alert('Player 1 selected:' + character);
+        console.log('Player 1 selected:' + character);
         //add selected character to local storage
 
     } else if (selectedArray.length == 1) {
-        alert('Pleayer 2 selected' + character);
+        console.log('Pleayer 2 selected' + character);
         //add selected character
     } else if (selectedArray.length >= 2) {
         alert('Characters have been selected, please press reset to change characters');
+
     }
 }
 
@@ -294,47 +295,35 @@ function getData(API_URL, id) {
 }
 
 function populateData(result, id) {
-    var character = document.getElementById('character');
-    var characterInfo = document.getElementById('character__info');
+    //populate characters only if 2 or less characters have been selected
+    if (selectedArray.length <= 2) {
+        var character = document.getElementById('character');
 
-    var displayCharacter = document.createElement("img");
-    displayCharacter.setAttribute("id", "character__image");
-    displayCharacter.setAttribute("src", "assets/images/" + result.name + '.svg');
-    displayCharacter.setAttribute("alt", "character image");
-    displayCharacter.classList.add("character__image");
+        var displayCharacter = document.createElement("img");
+        displayCharacter.setAttribute("id", "character__image");
+        displayCharacter.setAttribute("src", "assets/images/" + result.name + '.svg');
+        displayCharacter.setAttribute("alt", "character image");
+        displayCharacter.classList.add("character__image");
 
-    var description = document.createElement("p");
-    description.setAttribute("id", "description");
+        var description = document.createElement("p");
+        description.setAttribute("id", "description");
 
+        var name = document.createTextNode("Name " + result.name + '\n');
+        description.appendChild(name);
 
-    var name = document.createTextNode("Name " + result.name + '\n');
-    description.appendChild(name);
+        var gender = document.createTextNode("Gender " + result.gender + '\n');
+        description.appendChild(gender);
 
-    if (result.born == true) {
-        var born = document.createTextNode("Born " + result.born + '\n');
-        description.appendChild(born);
+        var culture = document.createTextNode("Culture " + result.culture + '\n');
+        description.appendChild(culture);
+
+        var aliases = document.createTextNode("Aliases " + result.aliases + '\n');
+        description.appendChild(aliases);
+
+        character.appendChild(displayCharacter);
+        character.appendChild(description);
+
     }
-
-    var gender = document.createTextNode("Gender " + result.gender + '\n');
-    description.appendChild(gender);
-
-    var culture = document.createTextNode("Culture " + result.culture + '\n');
-    description.appendChild(culture);
-
-    var aliases = document.createTextNode("Aliases " + result.aliases + '\n');
-    description.appendChild(aliases);
-
-    character.appendChild(displayCharacter);
-    character.appendChild(description);
-
-    // let displayCharacter =
-    //     '<img class="character__image" src="assets/images/' + result.name + '.svg">' +
-    //     '<h3>' + result.name + '</h3>' +
-    //     '<p> Born:' + result.born + '</p>' +
-    //     '<p> Gender:' + result.gender + '</p>' +
-    //     '<p> culture:' + result.culture + '</p>' +
-    //     '<p> Aliases:' + result.aliases + '</p>';
-    // document.getElementById('character').innerHTML = displayCharacter;
 }
 
 

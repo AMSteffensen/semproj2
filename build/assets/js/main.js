@@ -4,7 +4,7 @@ var reset = document.getElementById("reset");
 
 //new game when both players selected character
 newGame.addEventListener("click", function () {
-    if (selectedArray.length === 2) {
+    if (selectedArray.length >= 2) {
         twoPlayers = true;
         setTimeout(function () {
             window.location.href = 'game.html';
@@ -22,4 +22,8 @@ reset.addEventListener("click", function () {
     localStorage.clear();
     twoPlayers = false;
     console.log("Selections reset");
+
+    // get chracter node, delete it
+    var node = document.getElementById('character');
+    node.innerHTML = "";
 });
