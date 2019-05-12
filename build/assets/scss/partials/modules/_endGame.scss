@@ -1,0 +1,44 @@
+.container {
+    //background-color: blue;
+}
+
+.background {
+    background-color: $color-primary;
+    opacity: .5;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    position: absolute;
+
+    &__winner {
+        margin-left: 450px;
+        color: white;
+        padding: 1em;
+    }
+
+    &__btn {
+        padding: 1em;
+        margin-left: 600px;
+        position: relative;
+        background-color: $color-secondary;
+        color: black;
+        z-index: 4;
+        opacity: 1;
+    }
+}
+
+.foreground {
+    //background-color: blue;
+    z-index: 2;
+    background-color: $color-secondary;
+
+    display: flex;
+    flex-direction: column;
+
+    &__canvas {
+        background-color: $color-darkgray;
+        max-width: 100%;
+        height: 400px;
+        width: 50%;
+    }
+}

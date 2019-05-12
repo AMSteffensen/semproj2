@@ -10,8 +10,22 @@
 </head>
 
 <body>
-    <canvas id="canvas" width="500" height="500"></canvas>
-    <button class="btn btn-primary" id="tryAgain" onclick="tryAgain()">Try again?</button>
+    <main>
+        <div class="container">
+            <div class="background">
+                <h1 class="background__winner" id="winner"></h1>
+                <button class="background__btn btn btn-primary" id="tryAgain" onclick="tryAgain()">Try again?</button>
+            </div>
+            <div id="particles"></div>
+            <div class="foreground">
+                <canvas class="foreground__canvas" id="canvas"></canvas>
+
+            </div>
+
+        </div>
+
+
+    </main>
     <script src="assets/js/winner.js"></script>
 </body>
 

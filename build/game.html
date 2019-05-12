@@ -9,33 +9,14 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<style>
-  .message {
-    background-color: gray;
-    color: white;
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    left: 250px;
-    padding: 2em;
-  }
-
-  .btn {
-    padding: 1em;
-    background-color: blue;
-    color: white;
-    width: 200px;
-    display: flex;
-    justify-content: center;
-  }
-</style>
-
 <body>
 
   <div class="dice">
     <img src="assets/images/dice1.svg" id="dice" alt="Roll the dice">
   </div>
 
+  <div class="message" id="message">
+  </div>
 
 
   <div class="board">
@@ -137,15 +118,6 @@
   </div>
   <div class="versus" id="characters"></div>
   <div class="versus__names" id="names"></div>
-
-  <!-- <p class="message">
-  </p>
-  <button class="btn" id="roll">Roll</button>
-
-  
-
-  <p id="number">0</p>
-  <button onClick="countClicks();" id="count">Click!</button> -->
 
   <script src="assets/js/game.js">
   </script>
