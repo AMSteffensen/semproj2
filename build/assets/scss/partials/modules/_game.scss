@@ -32,9 +32,22 @@
     left: 600px;
 }
 
-.characters {
+.versus {
     display: flex;
-    position: absolute;
-    left: 600px;
-    top: 200px;
+    flex-direction: row;
+    //justify-content: flex-start;
+
+    img {
+        width: 300px;
+        height: 300px;
+    }
+
+    &__names {
+        display: flex;
+        align-content: space-between;
+    }
+}
+
+.active {
+    background-color: $color-green;
 }

@@ -1,21 +1,39 @@
-// .character {
-//     display: grid;
-//     grid: repeat(2, 60px) / auto-flow 50px;
-// }
-
-// .character-card {
-//     background-color: $color-gray;
+.character {
+    background-color: $color-gray;
 
 
-//     &__img {
-//         height: 50px;
-//         width: 50px;
-//         display: inline-block;
-//         border: 5px outset $color-red;
-//     }
+    &__image {
+        height: 150px;
+        width: 150px;
+        display: inline-block;
+        border: 5px outset $color-red;
+    }
 
-//     &:hover {
-//         cursor: pointer;
-//         border: 5px inset $color-secondary;
-//     }
-// }
+}
+
+.nav-char-column {
+    img {
+        height: 50px;
+        width: 50px;
+        display: inline-block;
+        border: 5px outset $color-gray;
+
+        &:hover {
+            cursor: pointer;
+            border: 5px inset $color-secondary;
+        }
+    }
+
+
+
+}
+
+.preview {
+    height: 500px;
+    width: 500px;
+}
+
+
+.selected {
+    display: none;
+}
