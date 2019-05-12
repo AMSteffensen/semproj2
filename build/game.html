@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<style>
+  .message {
+    background-color: gray;
+    color: white;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 250px;
+    padding: 2em;
+  }
+
+  .btn {
+    padding: 1em;
+    background-color: blue;
+    color: white;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+  }
+</style>
+
+<body>
+
+
+  <div class="board">
+    <div class="board__tile start" id="tile1">
+      <div class="board__tile--number">1</div>
+      <div class="board__tile--name">Start</div>
+    </div>
+    <div class="board__tile" id="tile2">
+      <div class="board__tile--number">2</div>
+    </div>
+    <div class="board__tile" id="tile3">
+      <div class="board__tile--number">3</div>
+    </div>
+    <div class="board__tile" id="tile4">
+      <div class="board__tile--number">4</div>
+    </div>
+    <div class="board__tile" id="tile5">
+      <div class="board__tile--number">5</div>
+    </div>
+    <div class="board__tile" id="tile6">
+      <div class="board__tile--number">6</div>
+    </div>
+    <div class="board__tile" id="tile7">
+      <div class="board__tile--number">7</div>
+    </div>
+    <div class="board__tile" id="tile8">
+      <div class="board__tile--number">8</div>
+    </div>
+    <div class="board__tile" id="tile9">
+      <div class="board__tile--number">9</div>
+    </div>
+    <div class="board__tile" id="tile10">
+      <div class="board__tile--number">10</div>
+    </div>
+    <div class="board__tile" id="tile11">
+      <div class="board__tile--number">11</div>
+    </div>
+    <div class="board__tile" id="tile12">
+      <div class="board__tile--number">12</div>
+    </div>
+    <div class="board__tile" id="tile13">
+      <div class="board__tile--number">13</div>
+    </div>
+    <div class="board__tile" id="tile14">
+      <div class="board__tile--number">14</div>
+    </div>
+    <div class="board__tile" id="tile15">
+      <div class="board__tile--number">15</div>
+    </div>
+    <div class="board__tile" id="tile16">
+      <div class="board__tile--number">16</div>
+    </div>
+    <div class="board__tile" id="tile17">
+      <div class="board__tile--number">17</div>
+    </div>
+    <div class="board__tile" id="tile18">
+      <div class="board__tile--number">18</div>
+    </div>
+    <div class="board__tile" id="tile19">
+      <div class="board__tile--number">19</div>
+    </div>
+    <div class="board__tile" id="tile20">
+      <div class="board__tile--number">20</div>
+    </div>
+    <div class="board__tile" id="tile21">
+      <div class="board__tile--number">21</div>
+    </div>
+    <div class="board__tile" id="tile22">
+      <div class="board__tile--number">22</div>
+    </div>
+    <div class="board__tile" id="tile23">
+      <div class="board__tile--number">23</div>
+    </div>
+    <div class="board__tile" id="tile24">
+      <div class="board__tile--number">24</div>
+    </div>
+    <div class="board__tile" id="tile25">
+      <div class="board__tile--number">25</div>
+    </div>
+    <div class="board__tile" id="tile26">
+      <div class="board__tile--number">26</div>
+    </div>
+    <div class="board__tile" id="tile27">
+      <div class="board__tile--number">27</div>
+    </div>
+    <div class="board__tile" id="tile28">
+      <div class="board__tile--number">28</div>
+    </div>
+    <div class="board__tile" id="tile29">
+      <div class="board__tile--number">29</div>
+    </div>
+    <div class="board__tile" id="tile30">
+      <div class="board__tile--number">30</div>
+      <div class="board__tile--name">End</div>
+    </div>
+
+    <p class="message">
+    </p>
+
+    <button class="btn" id="roll">Roll</button>
+
+
+    <div class="characters">
+      <p>Player One</p>
+      <p>Player Two</p>
+    </div>
+
+    <p id="number">0</p>
+    <button onClick="countClicks();" id="count">Click!</button>
+
+    <script src="assets/js/game.js">
+    </script>
+</body>
+
+</html>
+
+</div>

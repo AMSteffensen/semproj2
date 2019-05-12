@@ -1,0 +1,21 @@
+/*Button mixin: https://codepen.io/jason-kinney/pen/AqbCi */
+@mixin button-bg($bg) {
+    background: $bg;
+
+    &:hover {
+        background: darken($bg, 8%);
+        transition: all 0.3s ease;
+    }
+
+    &:active {
+        background: darken($bg, 25%);
+    }
+}
+
+//border radius for buttons
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}

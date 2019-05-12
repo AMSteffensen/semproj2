@@ -1,0 +1,104 @@
+// $color-primary: #261e35;
+// $color-secondary: #ebbd4b;
+// $color-gray: #e7e7e7;
+// $color-darkgray: #707070;
+// $color-red: #f0110d;
+// $color-green: #12da41;
+
+.site-container {
+    display: grid;
+    //grid-template-columns: 2fr;
+    grid-template-columns: repeat(auto-fill, minmax(3, 1fr));
+
+
+    grid-template-areas: "header"
+        "nav"
+        "nav"
+        "preview";
+
+    // @media (min-width: 700px) {
+    //     //grid-template-columns: 1fr 1fr 1fr;
+    //     grid-template-columns: repeat(auto-fill, minmax(3, 1fr));
+    //     grid-template-areas:
+    //         "header header header"
+    //         "nav preview preview"
+    //         "nav preview preview";
+    // }
+    height: 100vh;
+
+    @media (min-width: 500px) {
+        grid-template-columns: repeat(auto-fill, minmax(2, 1fr));
+        grid-template-areas:
+            "header header"
+            "nav preview"
+            "nav preview";
+    }
+
+    // @media (min-width: 800px) {
+    //     grid-template-columns: repeat(auto-fill, minmax(3, 1fr));
+    //     grid-template-areas:
+    //         "header header header"
+    //         "nav preview preview"
+    //         "nav preview preview";
+    // }
+}
+
+.site-header {
+    grid-area: header;
+    background-color: $color-gray;
+    //width: 500px;
+    // display: flex;
+    // flex-direction: column;
+}
+
+.site-inner {
+    grid-area: preview;
+    //display: flex;
+    background-color: $color-darkgray;
+    // grid-column: 2;
+    // grid-row: 2 / 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    height: 600px;
+    //width: 600px;
+}
+
+/* MAIN NAVIGATION */
+.nav-char {
+    grid-area: nav;
+    //max-width: 50px;
+    //width: 50px;
+    display: grid;
+    grid-template-columns: auto auto;
+    //grid-auto-rows: minmax(100px, 100px);
+    // grid-template-columns: repeat(auto-fill, minmax(2, 100px 100px));
+    // grid-auto-rows: minmax(100px, 100px);
+
+
+    &-column {
+        background-color: $color-secondary;
+        list-style: none;
+        margin: 0;
+        display: flex;
+        //align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        //flex-wrap: wrap;
+        padding: 1em;
+
+    }
+
+
+
+    &-img {
+        max-width: 100px;
+        max-height: 70px;
+    }
+
+}
+
+.wrap {
+    padding: 1em;
+}

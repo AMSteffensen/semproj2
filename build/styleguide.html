@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Styleguide</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        const cards = document.querySelectorAll('.character-select');
+
+        let hasSelectedCharacter = false;
+        let firstCharacter, secondCharacter;
+
+        function selectCharacter() {
+            // console.log('I was clicked');
+            // console.log(this);
+            this.classList.toggle('character-select');
+
+            //first player select
+            if (!hasSelectedCharacter) {
+                hasSelectedCharacter = true;
+                firstCharacter = this;
+                //remove character after selection
+                firstCharacter.style.display = 'none';
+
+                console.log({
+                    hasSelectedCharacter,
+                    firstCharacter
+                });
+                console.log('Player one has selected.');
+            } else {
+                //second player select
+                hasSelectedCharacter = false;
+                secondCharacter = this;
+
+                console.log({
+                    firstCharacter,
+                    secondCharacter
+                });
+                console.log('Player two has selected.');
+
+                //check character that is selected
+                console.log(firstCharacter.dataset.character);
+                console.log(secondCharacter.dataset.character);
+
+                //remove character after selection
+                secondCharacter.style.display = 'none';
+
+            }
+        }
+
+        //add events lister to cards
+        cards.forEach(card => card.addEventListener('click', selectCharacter));
+
+
+        /* when button clicked, check what target that is clicked, if it matches charcter store selection to local
+        storage
+
+        const character
+        if (target.matches(character) {
+        console.log(target.value)
+        }
+
+        */
+
+
+
+
+        //Start game
+        function startGame() {
+            //when both players have slected a character, start game.
+
+
+        }
+
+
+
+
+        function fetchData(Url, id) {
+            fetch(Url)
+                .then((response) => {
+                    return response.json();
+                })
+                .then((result) = {
+                    console.log(result);
+                    populateCardInfo(result, id);
+                });
+        }
+    </script>
+</head>
+
+<body>
+    <h1 class="text-center">Hello World</h1>
+    <!-- Character selection -->
+    <div class="character">
+        <div class="character-name"></div>
+        <div class="character-description"></div>
+        <div class="character-description"></div>
+    </div>
+
+    <!-- Headings-->
+    <h1>Heading one</h1>
+    <h1>Heading two</h1>
+
+    <!-- Paragraphs -->
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, necessitatibus error
+        molestiae,
+        quaerat, aliquid accusantium quo placeat voluptatem mollitia deleniti eum. Soluta
+        distinctio nulla
+        minus.</p>
+
+
+    <section class="character">
+        <div class="character-card">
+            <img class="character-card__img" src="assets/images/hound.svg" alt="Character" />
+        </div>
+        <div class="character-card">
+            <img class="character-card__img" src="assets/images/sam.svg" alt="Character" />
+        </div>
+        <div class="character-card">
+            <img class="character-card__img" src="assets/images/daenerys.svg" alt="Character" />
+        </div>
+        <div class="character-card">
+            <img class="character-card__img" src="assets/images/fellow.svg" alt="Character" />
+        </div>
+        <div class="character-card">
+            <img class="character-card__img" src="assets/images/jaime.svg" alt="Character" />
+        </div>
+        <div class="character-card">
+            <img class="character-card__img" src="assets/images/khaldrogo.svg" alt="Character" />
+        </div>
+        <div class="character-card">
+            <img class="character-card__img" src="assets/images/lady.svg" alt="Character" />
+        </div>
+        <div class="character-card">
+            <img class="character-card__img" src="assets/images/walker.svg" alt="Character" />
+        </div>
+        <div class="character-card">
+            <img class="character-card__img" src="assets/images/tyrion.svg" alt="Character" />
+        </div>
+        <div class="character-card">
+            <img class="character-card__img" src="assets/images/bran.svg" alt="Character" />
+        </div>
+    </section>
+
+    <section class="information">
+        <h2>Character info.</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus autem
+            dolorum, sed
+            rem aliquam
+            perspiciatis ab deleniti iusto! Dicta assumenda enim non impedit dolor
+            facilis et,
+            molestiae ea a
+            vitae?</p>
+
+    </section>
+
+
+    <section class="game-info">
+        <h2>Information</h2>
+        <p>
+            This is a two player game set in the Game of Thrones universe
+            where the goalis to reach the iron throne first. The game is
+            based on the indian Snakes And Ladders game, and you have to
+            throw a dice and the token will move accordingly.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Saepe, veniam? Ea aperiam fugit
+            quod quam minima neque sint a, id veritatis nihil. Ipsum, est
+            nobis.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima
+            doloremque cupiditate voluptates tenetur, sapiente amet cum
+            veritatis laboriosam qui ex! Eligendi provident possimus minima
+            earum.
+        </p>
+        <h3>Playing the game</h3>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Consequuntur perspiciatis deleniti, quaerat in exercitationem
+            libero harum magnam earum dolores expedita rem doloribus nihil
+            dicta explicabo.
+        </p>
+        <h3>Winning the game</h3>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt,
+            illum. Iure aperiam voluptas distinctio eos magni ad nemo
+            eligendi autem, minima illo necessitatibus eius nulla!
+        </p>
+    </section>
+
+    <aside class="sidebar">
+        <h3>Feedback on the game?</h3>
+        <p>Send us an email to let us know about any tips or bugs.</p>
+        <div class="signup-form">
+            <form>
+                <input type="text" name="name" />
+                <input type="email" name="email" />
+                <input type="submit" name="submit" value="submit" />
+            </form>
+        </div>
+        <!-- signup-form -->
+    </aside>
+    <!-- aside -->
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>

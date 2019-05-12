@@ -1,0 +1,52 @@
+/* RESET */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+}
+
+/* TYPOGRAPHY */
+body {
+    font: $mainFont;
+    font-size: 16px;
+    //font-size: modular-scale(2);
+    line-height: 1.6em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font: $headFont;
+    //font-size: modular-scale(2);
+}
+
+/* BUTTONS */
+#{$all-buttons} {
+    padding: 5px 10px;
+    border-radius: 3px;
+    background-color: $color-primary;
+}
+
+#{$all-buttons-focus},
+#{$all-buttons-hover} {
+    @include button-bg($color-primary);
+}
+
+.game-info {
+    display: none;
+}
+
+.sidebar {
+    display: none;
+}
+
+.site-footer {
+    display: none;
+}

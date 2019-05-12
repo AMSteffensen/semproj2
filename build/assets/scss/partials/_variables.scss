@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Cinzel:400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900');
+
+//Add color pallete
+$color-primary: #261e35;
+$color-secondary: #ebbd4b;
+$color-gray: #e7e7e7;
+$color-darkgray: #707070;
+$color-red: #f0110d;
+$color-green: #12da41;
+
+
+//font variables
+$font-primary: 'Cinzel Decorative',
+cursive;
+$font-secondary: 'Montserrat',
+sans-serif;
+
+$normal : 400;
+$bold: 700;
+$black: 900;
+
+$headFont: $normal 1.5em/1.5em $font-primary;
+$mainFont: $normal 1em/1.5em $font-secondary;
