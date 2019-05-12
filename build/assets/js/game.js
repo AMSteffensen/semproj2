@@ -1,7 +1,8 @@
 /*
 TODO: 
-Determinate winner
-Send to game over screen
+add alerts that dont interupt gameplay instead of alerts. 
+add graphics to the game board, winning image and start image
+animate rolling of dice
 
 Clean up code
 Refactor code
