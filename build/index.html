@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Game of thrones game</title>
+    <title>Game of seats game</title>
     <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
@@ -33,30 +33,32 @@
                         class="nav-char-img" />
                 </li>
                 <li>
-                    <img id="jamie" src="assets/images/jamie.svg" alt="character slect" class="nav-char-img" />
+                    <img id="jamie" src="assets/images/Jaime Lannister.svg" alt="character slect"
+                        class="nav-char-img" />
                 </li>
                 <li>
-                    <img id="sam" src="assets/images/sam.svg" alt="character select" class="nav-char-img" />
+                    <img id="sam" src="assets/images/Samwell Tarly.svg" alt="character select" class="nav-char-img" />
                 </li>
                 <li>
-                    <img id="tyrion" src="assets/images/tyrion.svg" alt="character select" class="nav-char-img" />
+                    <img id="tyrion" src="assets/images/Tyrion Lannister.svg" alt="character select"
+                        class="nav-char-img" />
                 </li>
                 <li>
-                    <img id="bran" src="assets/images/bran.svg" alt="character slect" class="nav-char-img" />
+                    <img id="bran" src="assets/images/Brandon Stark.svg" alt="character slect" class="nav-char-img" />
                 </li>
             </ul>
             <ul class="nav-char-column">
                 <li>
-                    <img id="dude" src=" assets/images/dude.svg" alt="character select" class="nav-char-img" />
+                    <img id="dude" src=" assets/images/bronn.svg" alt="character select" class="nav-char-img" />
                 </li>
                 <li>
-                    <img id="khaldrogo" src="assets/images/khaldrogo.svg" alt="character select" class="nav-char-img" />
+                    <img id="khaldrogo" src="assets/images/Cohollo.svg" alt="character select" class="nav-char-img" />
                 </li>
                 <li>
-                    <img id="ladyred" src="assets/images/ladyred.svg" alt="character select" class="nav-char-img" />
+                    <img id="ladyred" src="assets/images/Melisandre.svg" alt="character select" class="nav-char-img" />
                 </li>
                 <li>
-                    <img id="walker" src="assets/images/walker.svg" alt="character select" class="nav-char-img" />
+                    <img id="walker" src="assets/images/urrathon.svg" alt="character select" class="nav-char-img" />
                 </li>
                 <li>
                     <img id="arya" src="assets/images/Arya Stark.svg" alt="character select" class="nav-char-img" />
@@ -68,10 +70,17 @@
             <div class="site-inner">
                 <div class="wrap">
                     <!-- Preview -->
-                    <div id="character">
+                    <div class="preview">
+                        <h2>Please select character</h2>
+                        <div id="character"></div>
+                        <div id="character__info"></div>
                     </div>
-                    <h2>Please select character</h2>
-                    <button id="newGame" class="btn">Start Game</button>
+
+
+                    <div class="buttons">
+                        <button id="reset" class="btn btn-secondary">Reset</button>
+                        <button id="newGame" class="btn btn-primary">Start Game</button>
+                    </div>
                 </div>
                 <!-- Preview -->
             </div>

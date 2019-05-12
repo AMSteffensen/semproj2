@@ -4300,22 +4300,25 @@ h5,
 h6 {
   font: 400 1.5em/1.5em "Cinzel Decorative", cursive; }
 
-/* BUTTONS */
-button, [type='button'], [type='reset'], [type='submit'] {
-  padding: 5px 10px;
-  border-radius: 3px;
-  background-color: #261e35; }
+p {
+  font: 400 1em/1.5em "Montserrat", sans-serif; }
 
-button:focus, [type='button']:focus, [type='reset']:focus, [type='submit']:focus,
-button:hover, [type='button']:hover, [type='reset']:hover, [type='submit']:hover {
-  background: #261e35; }
-  button:focus:hover, [type='button']:focus:hover, [type='reset']:focus:hover, [type='submit']:focus:hover,
-  button:hover:hover, [type='button']:hover:hover, [type='reset']:hover:hover, [type='submit']:hover:hover {
-    background: #130f1b;
-    transition: all 0.3s ease; }
-  button:focus:active, [type='button']:focus:active, [type='reset']:focus:active, [type='submit']:focus:active,
-  button:hover:active, [type='button']:hover:active, [type='reset']:hover:active, [type='submit']:hover:active {
-    background: black; }
+/* BUTTONS */
+.buttons,
+.btn {
+  padding: 1em 1em;
+  border-radius: 3px;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: row; }
+  .buttons-primary,
+  .btn-primary {
+    background-color: #261e35;
+    color: #ebbd4b; }
+  .buttons-secondary,
+  .btn-secondary {
+    background-color: #ebbd4b;
+    color: #707070; }
 
 .game-info {
   display: none; }
@@ -4369,6 +4372,30 @@ button:hover, [type='button']:hover, [type='reset']:hover, [type='submit']:hover
 .wrap {
   padding: 1em; }
 
+.character {
+  background-color: #e7e7e7; }
+  .character__image {
+    height: 150px;
+    width: 150px;
+    display: inline-block;
+    border: 5px outset #f0110d; }
+
+.nav-char-column img {
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  border: 5px outset #e7e7e7; }
+  .nav-char-column img:hover {
+    cursor: pointer;
+    border: 5px inset #ebbd4b; }
+
+.preview {
+  height: 500px;
+  width: 500px; }
+
+.selected {
+  display: none; }
+
 .board {
   display: grid;
   justify-content: center;
@@ -4394,10 +4421,17 @@ button:hover, [type='button']:hover, [type='reset']:hover, [type='submit']:hover
   position: absolute;
   left: 600px; }
 
-.characters {
+.versus {
   display: flex;
-  position: absolute;
-  left: 600px;
-  top: 200px; }
+  flex-direction: row; }
+  .versus img {
+    width: 300px;
+    height: 300px; }
+  .versus__names {
+    display: flex;
+    align-content: space-between; }
+
+.active {
+  background-color: #12da41; }
 
 /*# sourceMappingURL=style.css.map */

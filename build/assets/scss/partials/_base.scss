@@ -27,17 +27,33 @@ h6 {
     //font-size: modular-scale(2);
 }
 
-/* BUTTONS */
-#{$all-buttons} {
-    padding: 5px 10px;
-    border-radius: 3px;
-    background-color: $color-primary;
+p {
+    font: $mainFont;
 }
 
-#{$all-buttons-focus},
-#{$all-buttons-hover} {
-    @include button-bg($color-primary);
+/* BUTTONS */
+
+
+.buttons,
+.btn {
+    padding: 1em 1em;
+    border-radius: 3px;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: row;
+
+    &-primary {
+        background-color: $color-primary;
+        color: $color-secondary;
+    }
+
+    &-secondary {
+        background-color: $color-secondary;
+        color: $color-darkgray;
+    }
+
 }
+
 
 .game-info {
     display: none;

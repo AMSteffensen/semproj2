@@ -15,7 +15,7 @@ Planning:
 
 (trello board: https://trello.com/b/nzprtoGe/semproj2)
 -Complete character selection screen
-
+-Fetch api, complete fetch info from game of thrones api
 
 
 Questions:
