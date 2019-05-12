@@ -4434,4 +4434,21 @@ p {
 .active {
   background-color: #12da41; }
 
+.message {
+  float: right;
+  top: 200px;
+  background-color: gray;
+  color: white;
+  justify-content: center;
+  position: absolute;
+  left: 500px;
+  padding: 2em; }
+@keyframes hide {
+  0% {
+    opacity: 1; }
+  90% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
 /*# sourceMappingURL=style.css.map */

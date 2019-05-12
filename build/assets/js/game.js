@@ -20,6 +20,8 @@ dice.addEventListener("click", styleCharacters);
 var playerOneSelection = localStorage.getItem('playerOne');
 var playerTwoSelection = localStorage.getItem('playerTwo');
 
+var message = '';
+
 function rollDice() {
     //throw dice no number greater than 6
     const max = 6;
@@ -73,39 +75,50 @@ function newTurn() {
     var ap = activePlayer();
     var moveBack = newPos - 3;
 
+
     if (newPos) {
         //check if player hits trap
         switch (newPos) {
+            case 1:
+                message = ap + " turn, press the dice!";
+                displayMessage(0);
+                break;
             case 5:
-                alert(ap + " hit trap at tile 5" + " moving back to tile 1");
+                message = ap + " hit trap at tile 5" + " moving back to tile 1";
+                displayMessage(message);
                 moveToken(ap, 1);
                 break;
             case 10:
-                alert(ap + " hit trap at tile 10" + " moving back to tile 5");
+                message = ap + " hit trap at tile 10" + " moving back to tile 5";
+                displayMessage(message);
                 moveToken(ap, 5);
                 break;
             case 15:
-                alert(ap + " hit trap at tile 15" + " moving back to tile " + moveBack);
+                message = ap + " hit trap at tile 15" + " moving back to tile " + moveBack;
+                displayMessage(message);
                 moveToken(ap, moveBack);
                 break;
             case 20:
-                alert(ap + " hit trap at tile 20" + " moving back to tile " + moveBack);
+                message = ap + " hit trap at tile 20" + " moving back to tile " + moveBack;
+                displayMessage(message);
                 moveToken(ap, moveBack);
                 break;
             case 25:
-                alert(ap + " hit trap at tile 25" + " moving back to tile 15");
+                message = ap + " hit trap at tile 25" + " moving back to tile 15";
+                displayMessage(message);
                 moveToken(ap, 15);
                 break;
 
             default:
-                console.log(ap + " rolled " + moveTiles);
+                displayMessage(ap + " rolled " + moveTiles);
 
                 if (newPos >= 30) {
                     gameOver();
                 } //if player throw 6, throw again
                 else if (moveTiles == 6) {
                     //if player throw 6, throw again
-                    alert(ap + " rolled 6, new turn!");
+                    message = ap + " rolled 6, new turn!";
+                    displayMessage(message);
                     moveToken(ap, newPos);
                     console.log(ap + " rolled " + moveTiles);
                 } else {
@@ -115,7 +128,6 @@ function newTurn() {
         }
 
     }
-
 }
 
 /*
@@ -164,14 +176,17 @@ function currentPos() {
 function gameOver() {
     var winner = activePlayer();
     localStorage.setItem("Winner", winner);
-    alert(winner + " Won the game!");
+    message = winner + " Won the game!";
+    displayMessage(message);
     scoreScreen();
 }
 
 
+
+
 function drawCharacters() {
 
-    let displayCharacter =
+    var displayCharacter =
         '<div>' +
         '<img id="characterOne" src="assets/images/' + playerOneSelection + '.svg">' +
         '<h2>' + playerOneSelection + '</h2>' +
@@ -183,6 +198,26 @@ function drawCharacters() {
         '</div>';
     document.getElementById('characters').innerHTML = displayCharacter;
 
+}
+
+function displayMessage(message) {
+    ap = activePlayer();
+    var box = document.getElementById('message');
+
+
+    // var displayMessage = document.createElement("p");
+    // displayMessage.setAttribute("id", "message__text");
+    // displayMessage.classList.add("show");
+    // //then after 5seconds hide message
+    // displayMessage.appendChild(displayMessage);
+
+    //box.textContent = 'Test';
+
+    //document.getElementById('message').textContent = 'This text is different!';
+    box.textContent = message;
+
+    //fade out message after 5s
+    //box.classList.add("message--visible");
 }
 
 function styleCharacters() {
@@ -203,7 +238,9 @@ function styleCharacters() {
 (function () {
     drawCharacters();
     styleCharacters();
+    displayMessage("Press the dice to rolll.");
 })();
+
 
 
 //Send players to score screen
